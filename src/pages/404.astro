@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/base.astro';
+import Seo from '../components/content/seo.astro'
+import AppConfig from '../components/config.js'
+import PageTitle from '../components/content/page-title/page-title.astro';
+import Text from '../components/content/global/global-text.astro';
+import Lead from '../components/content/global/global-lead.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Seite nicht gefunden">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      name="description">
+    <meta content="digital-agentur,webagentur,websites,online shop,e-commerce,apps,web applikationen,entwicklung,software entwicklung,webdesign,support,software architektur,wartung,ux/ui design,schnittstellen,beratung" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Seite nicht gefunden" name="twitter:title">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Seite nicht gefunden" property="og:title">
+    <meta content="Seite nicht gefunden" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="SORRY! Seite nicht gefunden." />
+  <section class="py-0">
+    <div class="container-xxl">
+      <Lead content="Ooops, unsere Webseite hat wohl ein Rad ab! Das kann's mal geben und wir entschuldigen uns dafür." />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterFull from '../../components/content/global/global-poster-full.astro';
+import PosterLargeVideo from '../../components/content/poster/poster-large-video.astro';
+import TextCenter from '../../components/content/global/global-text-center.astro';
+import TextImage from '../../components/content/global/global-text-image.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+import ProjectAttributes from '../../components/content/project/project-attributes.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro';
+import LogoBoard from '../../components/content/logo-board/logo-board.astro';
+
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Interne Web App für Immobiliensuche">
+    <meta
+      content="Für die Bank Thalwil durften wir eine individuelle Web Applikation für Immobiliensuche in agiler Arbeitsweise realisieren."
+      name="description">
+    <meta content="ux,ui,entwicklung,development,webapp,webapplikation,agile" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Interne Web App für Immobiliensuche" name="twitter:title">
+    <meta
+      content="Für die Bank Thalwil durften wir eine individuelle Web Applikation für Immobiliensuche in agiler Arbeitsweise realisieren."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Interne Web App für Immobiliensuche" property="og:title">
+    <meta content="Interne Web App für Immobiliensuche" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Für die Bank Thalwil durften wir eine individuelle Web Applikation für Immobiliensuche in agiler Arbeitsweise realisieren."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Interne Web App für Immobiliensuche" breadcrumbTitle="Projekte" breadcrumbUrl="/projekte"/>
+  <ProjectAttributes customer="Bank Thalwil" services="Konzept & Beratung, Web-App, Schnittstellen, UX- & UI-Design" published="2021" />
+  <PosterFull imageSrc="/assets/use-cases/bank-thalwil/poster_desktop_1.jpg" imageAlt="Backendansichten WebApp Bank Thalwil" imageTitle="Backendansichten WebApp Bank Thalwil" />
+  <section class="py-6">
+      <div class="container-xxl">
+        <TextCenter>
+          <p>Für die Bank Thalwil durften wir eine individuelle Web Applikation für Immobiliensuche in agiler Arbeitsweise realisieren. Der Fokus lag dabei auf einer effizienten Bedienbarkeit sowie auf der Auswahl von zukunftsorientierten Technologien.</p>
+        </TextCenter>
+      </div>
+  </section>
+  <PosterLargeVideo videoSrc="/assets/use-cases/bank-thalwil/animation_2.mp4"  posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" />
+  <section class="py-5">
+    <div class="container-xxl">
+      <TextImage imageTitle="Backend Dashboard Bank Thalwil" imageAlt="Backendfilter Bank Thalwil" imageSrc="use-cases/bank-thalwil/screenshot_dashboard_3.jpg">
+        Eine direkte Suche von Immobilien mit Filterkriterien über eine Schnittstelle zu PriceHubble gibt rasch einen Überblick über die bestehenden Angebote am Markt. Dies unterstützt den Berater bei der Suche nach Immobilien für seine Kunden und fördert die Kundenbindung.
+      </TextImage>
+      <TextImage imageTitle="Abonennten Bank Thalwil" imageAlt="Abonennten Bank Thalwil" imageSrc="use-cases/bank-thalwil/screenshot_subscriptions_4.jpg">
+        Abfragen können einfach als Abonnement gespeichert werden und so den Kunden via E-Mail zugestellt werden. Die Kunden der Bank Thalwil werden so automatisiert in periodischen Abständen über neue Immobilienangebote informiert.
+      </TextImage>
+    </div>
+  </section>
+  <PosterFull imageSrc="/assets/use-cases/bank-thalwil/poster_immolist_5.jpg" imageAlt="Liste Immobilien Bank Thalwil" imageTitle="Liste Immobilien Bank Thalwil" />
+  <GlobalContact label="Ich habe ein ähnliches Bedürfnis!" />
+  <SectionTitle title="weitere Projekte" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4" posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>
+  <LogoBoard />
+</BaseLayout>

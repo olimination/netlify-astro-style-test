@@ -1,0 +1,26 @@
+---
+import ProjectTeaser from '../../../components/content/project/project-teaser.astro';
+const filterElements = ["Website", "Webapp", "Schnittstelle", "UI/UX", "Architektur", "Entwicklung"];
+---
+
+<script>
+import jQuery from 'jquery';
+</script>
+
+<!--
+<section class="project-filter">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        {filterElements.map((element) => (
+          <a href="#" class="button isotope-element">{element}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</setion>
+-->
+
+<ProjectTeaser title="Bank Thalwil" lead="Interne WebApp und Dashboard für Immobiliensuche" videoSrc="/assets/videos/bank_thalwil_slow.mp4"  posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" detailLink="/projekte/bank-thalwil" />
+<ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4"  posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+<ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4"  posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>

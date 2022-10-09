@@ -1,0 +1,9 @@
+---
+export interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle, pageTitleTail } = Astro.props as Props;
+---
+<title>{ pageTitle || 'Software Entwicklung & Webdesign'} | { pageTitleTail || 'Comvation. Digital- & Webagentur Thun'}</title>
+<slot />

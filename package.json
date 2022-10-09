@@ -1,0 +1,31 @@
+{
+  "name": "@comvation/website-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
+    "atropos": "^1.0.2",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "gsap": "^3.10.4",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.6.0",
+    "mouse-follower": "^1.0.3",
+    "simple-parallax-js": "^5.6.2",
+    "swiper": "^8.1.0",
+    "ukiyojs": "^3.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/mdx": "^0.11.4",
+    "astro": "^1.4.5",
+    "sass": "^1.55.0"
+  }
+}

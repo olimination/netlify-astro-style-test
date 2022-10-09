@@ -1,0 +1,56 @@
+---
+const {label} = Astro.props;
+---
+
+<section class="global-contact">
+  <div class="container-xxl py-6">
+    <div class="row">
+      <div class="col-12 pb-3">
+        <p class="contact-lead m-0"> {label }</p>
+      </div>
+      <div class="col-12">
+         <p class="contact-link"><a href="/kontakt">Jetzt Kontakt aufnehmen</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../../styles/variables";
+
+  .global-contact {
+    background-color: #1C1F23;
+    color: #ffffff;
+
+    .contact-lead {
+      font-size:1.2rem;
+      font-weight: 300;
+    }
+
+    .contact-link {
+      font-size: 2.4rem;
+      line-height: 1.5em;
+      font-weight: 700;
+    }
+
+    a {
+      display: inline;
+      text-decoration: none;
+      color: rgba(255,255,255,1);
+      border-bottom: 3px solid rgba(255,255,255,1);
+    }
+  }
+
+  .global-contact a:hover {
+    color: $text-color-darkmode;
+    border-color: $text-color-darkmode;
+  }
+
+
+  /* Darkmode */
+  body.darkmode .global-contact {
+    background-color: rgba(0,0,0,0.1) !important;
+  }
+</style>
+
+

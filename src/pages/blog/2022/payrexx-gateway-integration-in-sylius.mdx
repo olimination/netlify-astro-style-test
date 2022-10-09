@@ -1,0 +1,128 @@
+---
+layout: '../../../layouts/blog.astro'
+title: 'Integration des Payrexx Gateways in den Sylius Online Shop'
+description: 'Installieren, konfigurieren oder programmieren? -- von Allem etwas.'
+posterLarge: 'blog/payrexx-gateway-integration-in-sylius-1.jpg'
+author: 'Reto Kohli'
+date: '2022-05-16'
+mainTag: 'development'
+tags: ['development','technology']
+metaDescription: 'Installieren, konfigurieren oder programmieren? -- von Allem etwas.'
+metaKeywords: 'payrexx,sylius,payment,gateway,integration,online,shop'
+picCredits: [
+    {name: 'Calvin Sprague', url: 'https://www.behance.net/unionhaus'}
+]
+---
+
+import TextImage from '../../../components/content/global/global-text-image.astro'
+import TextCenter from '../../../components/content/global/global-text-center.astro'
+import TextQuote from '../../../components/content/global/global-text-quote.astro'
+
+<TextQuote author="Antoine de Saint-Exupéry">
+Perfektion ist nicht dann erreicht, wenn man nichts mehr hinzufügen, sondern
+wenn man nichts mehr weglassen kann.
+</TextQuote>
+<h2>Erste Erfahrungen mit Sylius</h2>
+<p>
+Auch nach zahlreichen Projekten, mit verschiedenen Shop-Systemen und ihren
+jeweiligen individuellen Stärken und Schwächen, halten wir stets Ausschau nach
+neuen Lösungen.
+</p>
+<p>
+Bereits 2020 tauchte Sylius an unserem Horizont auf.
+Wir entschieden uns, ein erstes Projekt damit umzusetzen.
+Denn obwohl das Produkt relativ neu war, verfügte es bereits damals über einen
+beeindruckenden Funktionsumfang und ebensolche Flexibilität.
+</p>
+<p>
+Beides sind allerdings zweischneidige Schwerter; auf der anderen Seite erwarten
+den Entwickler eine steile Lernkurve und entsprechend viele Möglichkeiten,
+Fehler zu machen. Diese haben wir genutzt, daraus gelernt, und konnten den ersten Online Shop
+erfolgreich realisieren.
+</p>
+<h2>Mehr "Swissness"</h2>
+<p>
+Im Rahmen des zweiten Projekts folgten neue Anforderungen.  Es sollte eine
+Online-Bezahlung integriert werden, die neben den bekannten Kreditkarten auch
+nationale Anbieter wie Twint erlaubt.  Als international konzipiertes System
+bietet Sylius allerdings keine Anbindung an in der Schweiz etablierte
+Zahlsysteme – ausser natürlich für PayPal, das allerdings nicht die geforderten
+Zahlungsmittel unterstützt, und deswegen nicht in Frage kam.
+</p>
+<p>
+Der Entscheid für den Zahlungsanbieter fiel rasch auf
+<a href="https://www.payrexx.com/">
+Payrexx
+</a>
+.
+Dieser bietet sämtliche in der Schweiz gängigen Bezahlmethoden an, und noch
+eine ganze Menge mehr.
+</p>
+<p>
+Nun mussten die beiden Systeme dazu gebracht werden, miteinander zu sprechen.<br />
+Auch hier bot uns Sylius die Möglichkeit, die gewünschte Funktionalität in den
+Bestellprozess einzubinden:  Als <em>Plugin für Payum</em>.
+</p>
+<h2>/Pay(?:um|rexx)/</h2>
+<p>
+<a href="https://github.com/Payum/Payum">
+Payum
+</a>
+ist in jeder Installation von
+<a href="https://sylius.com/">
+Sylius
+</a>
+bereits enthalten, und bietet
+sozusagen einen Universaladapter für Zahlvorgänge an.  Sein einziger und
+offensichtlicher Mangel ist die Dokumentation in mässigem Englisch –
+offensichtlich nicht die Muttersprache des Autors – die primär anhand von
+Beispielen ausgewählte Verwendungen aufzeigt, diese aber kaum erläutert.
+</p>
+<p>
+Leider begegnet uns diese Situation bei Software öfter als uns lieb ist, und
+wir müssen manchmal mit "trial and error" arbeiten um herauszufinden, wie sie
+genau funktioniert.  Die erste Umsetzung gestaltete sich entsprechend
+schwierig.
+</p>
+<p>
+Über ein paar Zyklen von Nachlesen, Umschreiben und Probieren verbesserte sich
+nicht nur unser Verständnis, sondern auch der Code im Verhältnis dazu.
+Letzterer war am Ende noch halb so umfangreich wie zu Beginn.
+</p>
+<h3>Einstieg für Interessierte:</h3>
+<ul>
+<li>
+<a href="https://docs.sylius.com/en/1.11/book/orders/payments.html">
+Bezahlvorgang mit Sylius/Payum (englisch)
+</a>
+</li>
+<li>
+<a href="https://developers.payrexx.com/docs/payrexx-gateway">
+Payrexx Gateway API (englisch)
+</a>
+</li>
+</ul>
+<h2>Facile est cum scimus</h2>
+<p>
+Rückblickend haben wir aus den beiden erwähnten Projekten nützliche Einsichten
+erhalten und vieles lernen können.  Die folgende Auswahl ist nicht
+abschliessend, aber vollständig auf die meisten Projekte anwendbar:
+</p>
+<p>
+Viel wichtiger als die innere Funktionsweise einer Software (Sylius, Payum)
+im Detail zu kennen, ist zu verstehen, wie sie im Grossen und Ganzen "tickt",
+welche Konzepte also dahinter stecken.  Abgesehen davon verlassen wir uns
+weitgehend darauf, dass sie genau das tut, was wir von ihr erwarten.
+Andernfalls würde ihre Verwendung keinen Sinn machen.
+</p>
+<p>
+Eine weitere Erkenntnis ist, dass der Einsatz von Software in Form von mehreren
+einzelnen Komponenten wesentlich mehr <em>konfigurieren</em> erfordern kann als
+<em>programmieren</em>.  Ein Plugin ist leicht geschrieben, aber nutzlos ohne
+das passende Gegenstück.
+</p>
+<p>
+Einfacher als gedacht klappte die Verbindung über die Schnittstelle zum Payrexx
+API für die eigentliche Abwicklung der Bezahlungen; besonders deswegen, weil
+wir damit bereits Erfahrung mitgebracht haben.
+</p>

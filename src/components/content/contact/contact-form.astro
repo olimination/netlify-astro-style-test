@@ -1,0 +1,106 @@
+<script>
+import jQuery from 'jquery';
+import ContactForm from './contact-form.js';
+
+jQuery(() => {
+  ContactForm(jQuery, '.contact-form').init();
+});
+
+</script>
+
+<div class="row pt-5 pb-6 contact-form position-relative">
+  <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2" class="scroll-reveal">
+    <label>Ihre Nachricht</label>
+    <form name="contact-form" action="/kontakt/thankyou" method="post" data-netlify-honeypot="myextra-field" data-netlify="true">
+      <fieldset class="pb-5">
+        Hi, ich bin
+        <div class="input"  data-cursor="-pointer -hide">
+          <input name="firstname-lastname" class="resizing-input input-name" type="text" placeholder="Vor- und Nachname"
+          required>
+          <div class="line">
+            <svg width="601" height="13" viewBox="0 0 601 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.386444 4.04752H200.386C219.913 4.04752 230.86 11.3403 250.386 11.3403C269.913 11.3403 280.86 2.40114 300.386 2.40114C319.913 2.40114 330.86 7.84545 350.386 7.84545C369.913 7.84545 380.86 4.04752 400.386 4.04752H600.386" stroke="black" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="input-stick-point" id="input-stick-point-name"></div>
+        </div>
+        und brauche
+        <div class="select desktop">
+          <div class="fake-select-input" id="fake-select-input" data-cursor="-pointer" data-cursor-stick="#fake-select-center">
+            <div class="text">eine Website</div>
+            <div id="fake-select-center"></div>
+            <div class="arrow">
+              <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.60645 1.94049L12.6065 11.9404L22.6064 1.94049" stroke="#AFBAC4" stroke-width="5"/>
+              </svg>
+            </div>
+          </div>
+          <input type="hidden" name="customer-need"  value="website" disabled />
+          <div class="options">
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-1" data-value="website"><span class="text">eine Website</span> <div class="option-center" id="option-center-1">  </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-2" data-value="support"><span class="text">Support</span> <div class="option-center" id="option-center-2"> </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-3" data-value="consulting"><span class="text">Beratung</span> <div class="option-center" id="option-center-3"> </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-4" data-value="shop"><span class="text">einen E-Shop</span> <div class="option-center" id="option-center-4"> </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-5" data-value="app"><span class="text">eine App</span> <div class="option-center" id="option-center-5">  </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-6" data-value="design"><span class="text">UI/UX Design</span> <div class="option-center" id="option-center-6"> </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-7" data-value="seo"><span class="text">SEO</span> <div class="option-center" id="option-center-7"> </div> </div><br>
+            <div class="option" data-cursor="-pointer" data-cursor-stick="#option-center-8" data-value="varia"><span class="text">etwas anderes</span> <div class="option-center" id="option-center-8"> </div> </div>
+          </div>
+        </div>
+        <select name="customer-need" class="input-customer-need mobile" data-cursor="-pointer">
+          <option value="website">eine Website</option><option value="support">Support</option><option value="consulting">Beratung</option><option value="shop">einen E-Shop</option><option value="app">eine App</option><option value="design">UI/UX Design</option><option value="seo">SEO</option><option value="varia">etwas anderes</option>
+        </select>
+        <p class="d-none">
+          <input name="myextra-field" type="text"/>
+        </p>
+      </fieldset>
+      <fieldset class="pb-5">
+        Ihr erreicht mich via
+        <div class="input" data-cursor="-pointer -hide">
+          <input name="email" type="email" class="resizing-input input-mail" placeholder="E-Mail"
+                 required data-cursor="-pointer -hide"/>
+          <div class="line">
+            <svg width="601" height="13" viewBox="0 0 601 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.386444 4.04752H200.386C219.913 4.04752 230.86 11.3403 250.386 11.3403C269.913 11.3403 280.86 2.40114 300.386 2.40114C319.913 2.40114 330.86 7.84545 350.386 7.84545C369.913 7.84545 380.86 4.04752 400.386 4.04752H600.386" stroke="black" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="input-stick-point" id="input-stick-point-mail"></div>
+        </div>
+        oder
+        <div class="input"  data-cursor="-pointer -hide">
+          <input name="phone" class="resizing-input input-phone" type="text" placeholder="Telefon"
+                 data-cursor="-pointer -hide"/>
+          <div class="line">
+            <svg width="601" height="13" viewBox="0 0 601 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.386444 4.04752H200.386C219.913 4.04752 230.86 11.3403 250.386 11.3403C269.913 11.3403 280.86 2.40114 300.386 2.40114C319.913 2.40114 330.86 7.84545 350.386 7.84545C369.913 7.84545 380.86 4.04752 400.386 4.04752H600.386" stroke="black" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="input-stick-point" id="input-stick-point-phone"></div>
+        </div>
+      </fieldset>
+      <fieldset class="pb-5 contact-form-fieldset-budget">
+        Ich habe ein Budget von
+        <output id="budget-value" for="contact-form-input-budget">25'000</output>
+        <br/>
+        <input id="contact-form-input-budget" name="estimated-budget" class="input-budget" type="range" min="0"
+               max="255000" step="5000" value="25000" data-cursor="-pointer"/>
+      </fieldset>
+      <fieldset class="pb-5">
+        Was ich euch noch sagen wollte:<br/>
+        <div class="input textarea" data-cursor="-pointer -hide">
+          <textarea name="message" class="input-message" placeholder="Nachricht" data-cursor="-pointer -hide"></textarea>
+          <div class="line">
+            <svg width="601" height="13" viewBox="0 0 601 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.386444 4.04752H200.386C219.913 4.04752 230.86 11.3403 250.386 11.3403C269.913 11.3403 280.86 2.40114 300.386 2.40114C319.913 2.40114 330.86 7.84545 350.386 7.84545C369.913 7.84545 380.86 4.04752 400.386 4.04752H600.386" stroke="black" stroke-width="3"/>
+            </svg>
+          </div>
+        </div>
+      </fieldset>
+      <span class="send-button">
+        <input type="submit" value="absenden" data-cursor="-pointer -large" data-cursor-stick="#send-button-stick-point"/>
+        <span id="send-button-stick-point"></span>
+      </span>
+    </form>
+    <div class="text-measurer">Email</div>
+  </div>
+</div>

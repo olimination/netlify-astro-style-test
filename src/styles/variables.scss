@@ -1,0 +1,31 @@
+$xs-factor: 0.6;
+$sm-factor: 0.65;
+$md-factor: 0.7;
+$lg-factor: 0.8;
+$xl-factor: 0.9;
+$xxl-factor: 1;
+
+$test-color: #ff0000;
+$text-color: #1C1F23;
+$text-color-darkmode: #ffffff;
+$text-color-hover: #66727D;
+$text-color-hover-darkmode: #AFBAC3;
+$highlight-color: rgba(242, 166, 51, 1);
+$link-color: #66727D;
+$link-color-hover: #1C1F23;
+$link-color-darkmode: #66727D;
+$link-color-hover-darkmode: #AFBAC3;
+$button-background-color: #F3F4F5;
+
+$basic-transition: .5s ease-in-out;
+$fancy-transition: .5s cubic-bezier(.6, 0, .4, 1);
+$navi-transition: .5s cubic-bezier(.7, 0, .3, 1);
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+

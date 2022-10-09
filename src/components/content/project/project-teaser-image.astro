@@ -1,0 +1,146 @@
+---
+const {title, lead, imageSrc, detailLink} = Astro.props;
+---
+
+
+<section class="py-6">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-7" data-cursor="-pointer">
+        <a href={ detailLink }>
+          <picture class="m-0 p-0 mb-4 mb-md-0" data-cursor-text="zum Projekt">
+            <img  src={ imageSrc } alt={ title } title={ title } />
+          </picture>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-1 d-flex flex-column justify-content-center align-items-start mb-4 mb-md-0">
+        <h4 class="pb-3 m-0 scroll-reveal"><a href={ detailLink }>{ title }</a></h4>
+        <p class="lead-text m-0 scroll-reveal"><a href={ detailLink }>{ lead }</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  picture {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+
+  picture:before {
+    content: "";
+    width: 100%;
+    padding-bottom: 67%;
+    display: block;
+	  z-index: 0;
+  }
+
+  picture:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+	  z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-mix-blend-mode: screen;
+    mix-blend-mode: screen;
+    background-color: rgba(0, 0, 0, 0);
+    transform-origin: bottom center;
+    transform: scaleY(0);
+	  -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+
+  picture img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+	  object-position: 50% 50%;
+	  z-index: 1;
+	  display: block;
+	  -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    transform-origin: bottom center;
+  }
+
+  section > .container-xxl > .row > div:first-child() {
+    order: 99;
+  }
+
+  h4 a,
+  h4 a:hover {
+    color: $text-color-hover;
+    text-decoration: none;
+  }
+
+  p a,
+  p a:hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  /* Darkmode */
+  body.darkmode p a,
+  body.darkmode p a:hover {
+    color: $text-color-darkmode !important;
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+    section:nth-child(odd) > .container-xxl > .row > div:first-child() {
+      order:-1;
+    }
+
+    section:nth-child(even) > .container-xxl > .row > div:first-child() {
+      order: 99;
+    }
+
+    section .row:hover picture:after {
+      transform: scaleY(1);
+      background-color:  $highlight-color;
+    }
+
+    section .row:hover picture img {
+      /*filter: grayscale(0.75) contrast(1.15);*/
+      transform: translateY(-7.5px);
+    }
+
+  }
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1200px) {
+
+  }
+
+  @media (min-width: 1400px) {
+
+  }
+
+</style>
+

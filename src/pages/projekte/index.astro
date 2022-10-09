@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import ProjectOverview from '../../components/content/project/project-overview.astro';
+import LogoBoard from '../../components/content/logo-board/logo-board.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Projekte & Referenzen">
+    <meta
+      content="In jedem unserer Projekte steckt Herzblut, Tatendrang und Freude. Unsere Referenzen sind  Einzelstücke und unser ganzer Stolz."
+      name="description">
+    <meta content="websites,online shop,e-commerce,apps,web applikationen,entwicklung,software entwicklung,webdesign,support,software architektur,wartung,ux/ui design,schnittstellen,user testing,konzepte,beratung" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Projekte & Referenzen" name="twitter:title">
+    <meta
+      content="In jedem unserer Projekte steckt Herzblut, Tatendrang und Freude. Unsere Referenzen sind  Einzelstücke und unser ganzer Stolz."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Projekte & Referenzen" property="og:title">
+    <meta content="Projekte & Referenzen" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="In jedem unserer Projekte steckt Herzblut, Tatendrang und Freude. Unsere Referenzen sind  Einzelstücke und unser ganzer Stolz."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Auserwählte Projekte" />
+  <ProjectOverview />
+  <SectionTitle title="Weitere Kund:innen" />
+  <LogoBoard />
+</BaseLayout>

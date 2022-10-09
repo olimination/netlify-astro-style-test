@@ -1,0 +1,55 @@
+---
+const {googleSrc} = Astro.props;
+---
+
+<div class="row py-5 contact-map position-relative scroll-reveal">
+  <div class="col-12 col-md-6 col-lg-7 mb-4 mb-md-0">
+    <div class="m-0 p-0 google-map">
+      <iframe src={googleSrc} style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  <address class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-1 d-flex flex-column justify-content-center align-items-start">
+    <slot />
+  </address>
+</div>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  .google-map {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .google-map  iframe {
+    height: 50vh;
+    width: 100%;
+    display: block;
+  }
+
+
+  /* Darkmode */
+    body.darkmode  {
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 1400px) {
+
+  }
+
+</style>

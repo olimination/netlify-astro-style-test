@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Domains">
+    <meta
+      content="Als offizieller Registrar können Sie bei uns all Ihre Domains sämtlicher Endungen kostengünstig registrieren und verwalten."
+      name="description">
+    <meta content="Domain,Registrar,registrieren,Tranfer,reservieren,Toplevel" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Domains" name="twitter:title">
+    <meta
+      content="Als offizieller Registrar können Sie bei uns all Ihre Domains sämtlicher Endungen kostengünstig registrieren und verwalten."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Domains" property="og:title">
+    <meta content="Domains" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Als offizieller Registrar können Sie bei uns all Ihre Domains sämtlicher Endungen kostengünstig registrieren und verwalten."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Domain registrieren" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Als offizieller Registrar können Sie bei uns all Ihre Domains sämtlicher Endungen registrieren und verwalten." />
+      <Text>
+        <p>Verfügen Sie bereits über eigene Domains, so können Sie diese ganz bequem zu uns transferieren lassen, so haben Sie für sämtliche Belangen rund um Ihre digitale Lösungen ein einziger Ansprechpartner.</p>
+        <p><a href="/assets/services/Preisliste-Domains.pdf" target="_blank">Preisliste Domains</a></p>
+      </Text>
+    </div>
+</BaseLayout>

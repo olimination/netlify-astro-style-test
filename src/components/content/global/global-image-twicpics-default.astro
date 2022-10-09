@@ -1,0 +1,34 @@
+---
+import AppConfig from '../../../components/config.js';
+
+const { imageSrc, alt, width, height } = Astro.props;
+
+const cssClass = Astro.props.cssClass || '';
+const previewImageUrl = `${AppConfig.imageRenderingServiceBaseUrl}/${imageSrc}?twic=v1/output=preview`;
+---
+
+{
+  <img
+    src={ previewImageUrl }
+    data-twic-src={'image:' + imageSrc } alt={ alt }
+    width={ width } height={ height }
+    class={ cssClass } />
+}
+
+<style lang="scss">
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition-property: opacity;
+    will-change: opacity;
+    transition-delay: 0s;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+
+    &.twic-done {
+      opacity: 1;
+    }
+  }
+</style>

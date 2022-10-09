@@ -1,0 +1,60 @@
+---
+const {imageSrc, imageAlt, imageTitle} = Astro.props;
+---
+
+<section class="py-0 poster-medium">
+  <picture class="m-0 p-0 mb-4 mb-md-0">
+    <img class="parallax" src={ imageSrc } alt={ imageAlt } title={ imageTitle } />
+  </picture>
+</section>
+
+<style lang="scss">
+  .poster-medium {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+  }
+
+  picture {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+  }
+
+  picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+	  object-position: 50% 50%;
+	  z-index: 1;
+	  display: block;
+  }
+
+  /* Darkmode */
+    body.darkmode h2 {
+  }
+
+  @media (min-width: 576px) {
+  }
+
+  @media (min-width: 768px) {
+    .poster-medium {
+      height: 55vh;
+      height: 50vh;
+    }
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    .poster-medium {
+      height: 60vh;
+      height: 50vh;
+    }
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>

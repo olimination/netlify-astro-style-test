@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterFull from '../../components/content/global/global-poster-full.astro';
+import Text from '../../components/content/global/global-text.astro';
+import TextCenter from '../../components/content/global/global-text-center.astro';
+import TextImage from '../../components/content/global/global-text-image.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+import ProjectAttributes from '../../components/content/project/project-attributes.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro';
+import PosterLargeVideo from '../../components/content/poster/poster-large-video.astro';
+import LogoBoard from '../../components/content/logo-board/logo-board.astro';
+
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Responsive Website für Interior Design Studio">
+    <meta
+      content="Für R4 Raumwelten entstand ein frischer und moderner Webauftritt mit Fokus auf ein zeitgemässes und user-orientiertes responsive Design."
+      name="description">
+    <meta content="website,webdesign,homepage,responsive,ux,ui,design,r4,raumwelten" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Responsive Website für Interior Design Studio" name="twitter:title">
+    <meta
+      content="Für R4 Raumwelten entstand ein frischer und moderner Webauftritt mit Fokus auf ein zeitgemässes und user-orientiertes responsive Design."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Responsive Website für Interior Design Studio" property="og:title">
+    <meta content="Responsive Website für Interior Design Studio" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Für R4 Raumwelten entstand ein frischer und moderner Webauftritt mit Fokus auf ein zeitgemässes und user-orientiertes responsive Design."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Responsive Website für Interior Design Studio" breadcrumbTitle="Projekte" breadcrumbUrl="/projekte"/>
+  <ProjectAttributes customer="R4 Raumwelten" services="Konzept & Beratung, Website, UX- & UI-Design, Cloudrexx" published="2021" />
+  <PosterFull imageSrc="/assets/use-cases/r4-raumwelten/poster_devices_1.jpg" imageAlt="alt" imageTitle="title" />
+  <section class="py-6">
+      <div class="container-xxl">
+        <TextCenter>
+          <p>In Zusammenarbeit mit dem atelier v aus Worb wurde ein komplettes Redesign der Website vorgenommen. Das Resultat: ein frischer und moderner Webauftritt mit Fokus auf ein zeitgemässes, user-orientiertes Design.</p>
+        </TextCenter>
+      </div>
+  </section>
+  <PosterLargeVideo videoSrc="/assets/use-cases/r4-raumwelten/animation_2.mp4"  posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg" />
+  <section class="py-5">
+    <div class="container-xxl">
+      <TextImage imageTitle="Title" imageAlt="alt" imageSrc="use-cases/r4-raumwelten/screenshot_mobile_3.jpg">
+        So viel wie nötig - so wenig wie möglich. So lautet die Devise bei der Inhaltsstruktur. Das Hauptaugenmerk liegt bei den Kompetenzen der R4 Raumwelten AG und den damit verbundenen Referenzen. Eine einfache Kontaktaufnahme gepaart mit den richtigen Ansprechpersonen runden die Website ab.
+      </TextImage>
+      <TextImage imageTitle="Title" imageAlt="alt" imageSrc="use-cases/r4-raumwelten/screenshot_desktop_4.jpg">
+       Als Grundlage dient Cloudrexx als Content-Management-Lösung (CMS) in Kombination mit diversen Modulen aus dessen Standardumfang.
+      </TextImage>
+    </div>
+  </section>
+  <PosterFull imageSrc="/assets/use-cases/r4-raumwelten/poster_desktop_5.jpg" imageAlt="alt" imageTitle="title" />
+  <GlobalContact label="Ich habe ein ähnliches Bedürfnis!" />
+  <SectionTitle title="weitere Projekte" />
+  <ProjectTeaser title="Bank Thalwil" lead="Interne WebApp und Dashboard für Immobiliensuche" videoSrc="/assets/videos/bank_thalwil_slow.mp4" posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" detailLink="/projekte/bank-thalwil" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <LogoBoard />
+</BaseLayout>

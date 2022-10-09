@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Schnittstellen & API ">
+    <meta
+      content="Wir entwickeln Schnittstellen die Ihre Systeme nahtlos miteinander verbinden. So automatisieren wir Prozesse oder Teile davon. "
+      name="description">
+    <meta content="schnittstelle,json,webservice,microservice,verbinden,datenaustausch,restful,api,verknüpfen,prozesse,automatisieren" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Schnittstellen" name="twitter:title">
+    <meta
+      content="Wir entwickeln Schnittstellen die Ihre Systeme nahtlos miteinander verbinden. So automatisieren wir Prozesse oder Teile davon. "
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/schnittstellen-api.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Schnittstellen & API " property="og:title">
+    <meta content="Comvation | Web- & Digital-Agentur" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Wir entwickeln Schnittstellen die Ihre Systeme nahtlos miteinander verbinden. So automatisieren wir Prozesse oder Teile davon. "
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/schnittstellen-api.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Schnittstellen" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/schnittstellen-api.jpg" imageAlt="Schnittstellen & API " imageTitle="Schnittstellen & API " />
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Wir entwickeln Schnittstellen die Ihre Systeme nahtlos miteinander verknüpfen." />
+      <Text>
+        <p>Was bringen die besten Softwarelösungen, wenn sie nicht im Team spielen? Herzlich wenig. Spannend wird's erst, wenn sie auch miteinander kommunizieren, sich ergänzen, Schnittstellen genutzt werden - und Ihnen Arbeit abnehmen.</p>
+        <p>Wir verbinden deshalb Systeme sinnvoll, lassen sie miteinander kommunizieren und sich gegenseitig bereichern. So automatisieren wir Prozesse oder zumindest Teile davon und Ihnen bleibt mehr Zeit fürs Wesentliche.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Möchten Sie bestehende Lösungen verbinden?" />
+  <section class="pt-5">
+    <div class="container-xxl">
+      <Text>
+        <p>Unsere Zusammenarbeit wird kein klassisches Kunde & Dienstleister Verhältnis. Wir setzen auf eine partnerschaftliche Zusammenarbeit auf Augenhöhe. Diese basiert auf Vertrauen und Transparenz. Wir beraten Sie von Beginn an und begleiten Sie auch nach dem Go-Live. Projekte setzen wir in agiler Arbeitsweise in engem Austausch mit allen Beteiligten um.</p>
+      </Text>
+    </div>
+  </section>
+  <SectionTitle title="Auserwählte Arbeiten" />
+  <ProjectTeaser title="Bank Thalwil" lead="Interne WebApp und Dashboard für Immobiliensuche" videoSrc="/assets/videos/bank_thalwil_slow.mp4" posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" detailLink="/projekte/bank-thalwil" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ServiceKeywords title="Alles rund um Web- & Mobile Apps" >
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/konzept-beratung/" target="_blank">Konzept & Beratung </a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/software-architektur/" target="_blank">Software Architektur</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/agile-software-entwicklung/" target="_blank">Agile Software Entwicklung</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/website-online-shop" target="_blank">Websites & Online Shop </a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/web-mobile-apps" target="_blank">Web- & Mobile Apps</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/support-wartung/" target="_blank">Support & Wartung</a></h3></div>
+    </div>
+  </ServiceKeywords>
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

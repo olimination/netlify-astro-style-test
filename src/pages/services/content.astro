@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Texte & Bilder">
+    <meta
+      content="Mit den richtigen Worten in der passenden Sprache und stimmigen Bildern sind Missverständnisse und schlechte Suchresultate Schnee von gestern. "
+      name="description">
+    <meta content="Texte,Bilder,Videos,Content,SEO-Texte" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Texte & Bilder" name="twitter:title">
+    <meta
+      content="Mit den richtigen Worten in der passenden Sprache und stimmigen Bildern sind Missverständnisse und schlechte Suchresultate Schnee von gestern. "
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Texte & Bilder" property="og:title">
+    <meta content="Texte & Bilder" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Mit den richtigen Worten in der passenden Sprache und stimmigen Bildern sind Missverständnisse und schlechte Suchresultate Schnee von gestern. "
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Texte & Bilder" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Mit den richtigen Worten in der passenden Sprache und stimmigen Bildern oder Videos sind Missverständnisse Schnee von gestern." />
+      <Text>
+        <p>Überlassen Sie Ihren Inhalt nicht dem Zufall, denn er ist der Grund gefunden zu werden - oder eben auch nicht! Basierend auf den im Konzept definierten  Zielgruppen und Seitenstruktur, erarbeiten wir zielführende Inhalte mit passenden Bildern.</p>
+        <p>Texte sollen genug kurz sein, dass diese gerne gelesen werden und die gewünschten Informationen den Besuchern vermitteln - andererseits müssen Texte auch alle nötigen Kriterien und Informationen  der Suchmaschinen enthalten. Wir begleiten Sie bei der Erstellung und finden die optimale Balance.       </p>
+      </Text>
+    </div>
+</BaseLayout>

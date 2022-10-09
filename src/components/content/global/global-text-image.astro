@@ -1,0 +1,60 @@
+---
+import ImageDefault from '../../content/global/global-image-twicpics-default.astro';
+
+const { imageSrc, imageAlt } = Astro.props;
+---
+
+<div class="row py-6 global-text-image position-relative scroll-reveal">
+  <div class="col-12 col-md-6 col-lg-5 col-xl-4 d-flex flex-column justify-content-center align-items-start">
+    <slot />
+  </div>
+  <div class="col-12 col-md-6 col-lg-7 offset-xl-1 mb-4 mb-md-0">
+    <ImageDefault imageSrc={ imageSrc } alt={ imageAlt } cssClass="parallax m-0 p-0" />
+  </div>
+</div>
+
+
+<style lang="scss">
+  section .row:hover {
+    cursor: pointer;
+  }
+
+  .global-text-image > div:first-child() {
+    order: 99;
+  }
+
+  /* Darkmode */
+    body.darkmode  {
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+    .global-text-image:nth-child(odd) >  div:first-child() {
+      order:-1;
+    }
+
+    .global-text-image:nth-child(even) > div:first-child() {
+      order: 99;
+    }
+
+    .global-text-image:nth-child(even) > div:last-child() {
+      margin-left: 0 !important;
+    }
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    .global-text-image:nth-child(even) > div:first-child() {
+      margin-left: 8.3333%;
+    }
+  }
+
+  @media (min-width: 1400px) {
+  }
+
+</style>

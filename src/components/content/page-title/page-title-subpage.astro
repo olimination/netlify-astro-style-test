@@ -1,0 +1,52 @@
+---
+const { title, breadcrumbTitle, breadcrumbUrl } = Astro.props;
+---
+<section class="page-title-subpage">
+  <div class="container-xxl">
+    <div class="row scroll-reveal">
+      <div class="col-12 col-xl-10 col-xxl-9 pt-6 pb-5">
+        <nav><a href={ breadcrumbUrl }>{ breadcrumbTitle }</a></nav>
+        <h1 class="m-0">{ title }</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  section.page-title-subpage {
+    nav a {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: $text-color-hover;
+      line-height: 1.5em;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+
+    nav a:hover{
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+        line-height: 1.65em;
+        font-weight: 700;
+        text-transform: none;
+    }
+  }
+
+  /* Darkmode */
+  body.darkmode {
+    section.page-title-subpage nav a,
+    section.page-title-subpage nav a:hover {
+      color: $text-color-hover !important;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+  }
+</style>
+

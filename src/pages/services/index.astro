@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import ServiceTeaser from '../../components/content/service/service-teaser.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Services und modernste Technik">
+    <meta
+      content="Seit 18 Jahren ist die digitale Welt unsere Leidenschaft. Mit Konzept, Design und hochwertiger Entwicklung helfen und begleiten wir unsere Kunden nachhaltig."
+      name="description">
+    <meta content="websites,online shop,e-commerce,apps,web applikationen,entwicklung,software entwicklung,webdesign,support,software architektur,wartung,ux/ui design,schnittstellen,user testing,konzepte,beratung" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Services und modernste Technik" name="twitter:title">
+    <meta
+      content="Seit 18 Jahren ist die digitale Welt unsere Leidenschaft. Mit Konzept, Design und hochwertiger Entwicklung helfen und begleiten wir unsere Kunden nachhaltig."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Services und modernste Technik" property="og:title">
+    <meta content="Services und modernste Technik" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Seit 18 Jahren ist die digitale Welt unsere Leidenschaft. Mit Konzept, Design und hochwertiger Entwicklung helfen und begleiten wir unsere Kunden nachhaltig."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Breitgefächert und mit klarem Fokus" />
+  <ServiceTeaser title="Website & Online Shop" lead="Wir entwickeln technisch hochstehende Websites oder Online Shops und machen sie zum zentralen Instrument für mehr Umsatz und Reichweite." detailLink="/services/website-online-shop" />
+  <ServiceTeaser title="Web- & Mobile Apps" lead="Unsere individuelle Software Entwicklung löst Probleme wirklich. Wir entwickeln und betreuen Ihre massgeschneiderte Webapplikation." detailLink="/services/web-mobile-apps" />
+  <ServiceTeaser title="Schnittstellen" lead="Wir entwickeln Schnittstellen die Ihre Systeme nahtlos miteinander verbinden. So automatisieren wir Prozesse oder Teile davon." detailLink="/services/schnittstellen-api" />
+  <ServiceTeaser title="UX- & UI-Design" lead="Mit unseren durchdachten UX- und UI-Designs schaffen wir ein intuitives Nutzererlebnis und vereinen Ihr digitales Produkt zu einem ästhetischen Ganzen." detailLink="/services/ux-ui-design" />
+  <ServiceTeaser title="User Testing" lead="Damit die Bedürfnisse der künftigen Nutzer mit dem Endprodukt übereinstimmen, werden  Hypothesen aus der Konzeption auf den Prüfstand gestellt." detailLink="/services/user-testing" />
+  <ServiceTeaser title="Konzept & Beratung" lead="Mit einem ganzheitlichen Konzept schaffen wir die Grundlagen für Ihr Projekt und beraten Sie bei der digitalen Produktentwicklung." detailLink="/services/konzept-beratung" />
+  <ServiceTeaser title="Support & Wartung" lead="Unser Support-Team ist auch nach dem Go-Live für Sie da und garantiert Ihnen stets professionelle Unterstützung - 365 Tage im Jahr." detailLink="/services/support-wartung" />
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

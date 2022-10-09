@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Website & Online Shop">
+    <meta
+      content="Wir entwickeln technisch hochstehende Websites oder Online Shops und machen sie zum zentralen Instrument für mehr Umsatz und Reichweite."
+      name="description">
+    <meta content="Website,Webseite,Homepage,moderne Technologie,Webapplikation,Landingpage,E-Commerce,Online Shop,Payment,Responsive,Entwicklung" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Website & Online Shop" name="twitter:title">
+    <meta
+      content="Wir entwickeln technisch hochstehende Websites oder Online Shops und machen sie zum zentralen Instrument für mehr Umsatz und Reichweite."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Website & Online Shop" property="og:title">
+    <meta content="Website & Online Shop" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Wir entwickeln technisch hochstehende Websites oder Online Shops und machen sie zum zentralen Instrument für mehr Umsatz und Reichweite."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Website & Online Shop" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/websites-e-commerce.jpg" imageAlt="Website & Online Shop" imageTitle="Website & Online Shop" />
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Wir entwickeln technisch hochstehende Websites oder Online Shops und machen sie zum zentralen Instrument für mehr Umsatz und Reichweite." />
+      <Text>
+        <p>Die Entwicklung von Websites und Online Shops ist so viel mehr als nur Marketing. Es geht um moderne Technologie vereint mit sichtbarer Ästhetik. Für uns ist eine Website oder ein Online Shop das Gesicht Ihrer Unternehmung. Lassen Sie es uns umwerfend machen!</p>
+        <p>Unser Ziel ist ein durchdachtes Instrument in Form einer Website oder eines Online Shops, welches Ihre Produktivität steigert und den Umsatz erhöht. Ihre Besucher sollen mit einer zielführenden Benutzerführung Mehrwerte spüren, so dass Absprünge reduziert und die Reichweite erhöht wird.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Haben Sie ein Projekt geplant?" />
+  <section class="pt-5">
+    <div class="container-xxl">
+      <Text>
+        <p>Unsere Zusammenarbeit wird kein klassisches Kunde & Dienstleister Verhältnis. Wir setzen auf eine partnerschaftliche Zusammenarbeit auf Augenhöhe. Diese basiert auf Vertrauen und Transparenz. Wir beraten Sie von Beginn an und begleiten Sie auch nach dem Go-Live. Projekte setzen wir in agiler Arbeitsweise in engem Austausch mit allen Beteiligten um.</p>
+      </Text>
+    </div>
+  </section>
+  <SectionTitle title="Auserwählte Arbeiten" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4" posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>
+
+  <ServiceKeywords title="Alles rund um Websites & Online Shops" >
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/konzept-beratung/" target="_blank">Konzept & Beratung</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/blog/2022/cms-evaluation/" target="_blank">Welches CMS?</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/content/" target="_blank">Content</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/ux-ui-design/" target="_blank">UX- & UI-Design</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/user-testing/" target="_blank">User Testing</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/seo/" target="_blank">Technische SEO</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/hosting/" target="_blank">Hosting</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/domain/" target="_blank">Domain</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/support-wartung/" target="_blank">Support & Wartung</a></h3></div>
+    </div>
+  </ServiceKeywords>
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

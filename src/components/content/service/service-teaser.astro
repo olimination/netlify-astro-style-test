@@ -1,0 +1,106 @@
+---
+const {title, lead, detailLink} = Astro.props;
+---
+
+<section class="py-6 service-teaser">
+  <div class="container-xxl">
+    <div class="row scroll-reveal">
+      <div class="col-12 col-md-5 col-lg-4 ">
+        <h2 class="pb-3 m-0"><a href={ detailLink }>{ title }</a></h2>
+      </div>
+      <div class="col-12 col-md-7 col-lg-7 offset-lg-1">
+        <h3 class="mb-4"><a href={ detailLink }>{ lead }</a></h3>
+        <a class="more-informations" href={ detailLink } data-cursor-text="zum Service">Weitere Infos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  section.service-teaser {
+    position: relative;
+    transition: color .3s ease-out .1s;
+
+    .row {
+      transition: transform $basic-transition;
+    }
+
+    h2 {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      font-size: 2.4rem;
+    }
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+
+    .more-informations {
+      font-size: 1.8rem;
+      line-height: 1.5em;
+      border-bottom: 3px solid $text-color !important;
+    }
+
+  }
+
+  .service-teaser:hover .row {
+    transform: translateY(-7.5px);
+  }
+
+  .service-teaser:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-origin: bottom center;
+    transform: scaleY(0);
+    transition: all $fancy-transition;
+    content: "";
+    z-index: -1;
+  }
+
+  .service-teaser:hover:after {
+    transform: scaleY(1);
+    background-color: $highlight-color;
+  }
+
+
+  /* Darkmode */
+  body.darkmode {
+    section.service-teaser a  {
+      color: $text-color-darkmode !important;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+    section.service-teaser .more-informations {
+      border-color: $text-color-darkmode !important;
+    }
+  }
+
+
+  @media (min-width: 576px) {
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 1400px) {
+  }
+
+</style>
+

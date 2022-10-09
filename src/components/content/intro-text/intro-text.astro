@@ -1,0 +1,196 @@
+<section class="pb-6 main-intro-text d-flex flex-column justify-content-center align-items-start position-relative">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12 col-xl-11 col-xxl-10">
+        <h1 class="m-0">
+          Als Digital- & Webagentur mit tiefen Wurzeln im
+          <a href="/ueber-uns" data-cursor-video="/assets/videos/comvation_berner_oberland_thun.mp4">
+            Berner Oberland
+          </a>, helfen
+          <a href="/ueber-uns" data-cursor-video="/assets/videos/wir.mp4">
+            wir
+          </a>
+          unseren
+          <a href="/projekte" data-cursor-video="/assets/videos/comvation_kunden_color.mp4">
+            Kund:innen
+          </a>
+          ihr digitales Gesch&auml;ft aufzubauen und zu be&shy;schleunigen, indem wir mass&shy;geschneiderte
+          <a href="/services" data-cursor-video="/assets/videos/comvation_projekte.mp4">
+            digitale Produkte&nbsp;
+          </a>
+          <a href="/services" data-cursor-video="/assets/videos/comvation_projekte.mp4">
+            und Dienstleistungen
+          </a>
+          entwickeln.
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-area"  data-cursor-text="weiter scrollen"><!-- --></div>
+</section>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  section.main-intro-text {
+    min-height: calc(100vh - 9rem);
+
+    h1 {
+      font-size: 2.2rem;
+      line-height: 1.6em;
+      text-transform: none;
+      font-weight: 300;
+      opacity: 0;
+      transition: opacity .9s cubic-bezier(.5, 0, .5, 1);
+    }
+
+    a {
+      font-weight: 600;
+      text-decoration: none;
+      color: $text-color;
+      display: inline-block;
+      white-space: nowrap;
+      border-bottom: 0;
+
+      .stick-point {
+        position: relative;
+        z-index: -1;
+      }
+    }
+
+    .scroll-area {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 10vh;
+    }
+  }
+
+  body.loaded {
+    section.main-intro-text {
+      h1 {
+        opacity: 1;
+      }
+    }
+  }
+
+  .main-intro-text:after {
+    content:
+      url('/assets/videos/comvation_berner_oberland_thun.mp4')
+      url('/assets/images/comvation_geschichte_2004_screen.jpg')
+      url('/assets/videos/comvation_kunden_color.mp4')
+      url('/assets/videos/comvation_projekte.mp4');
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+    z-index:-1;
+    opacity: 0;
+  }
+
+  /* Darkmode */
+  body.darkmode section.main-intro-text a {
+    color: $text-color-darkmode;
+    border-bottom: 0;
+  }
+
+  body.darkmode section.main-intro-text a:hover {
+    color: $text-color-darkmode;
+    border-bottom: 0;
+  }
+
+  @media (min-width: 576px) {
+    section.main-intro-text {
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    section.main-intro-text {
+      min-height: calc(100vh - 10.5rem);
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      a {
+        font-weight: 500;
+        position: relative;
+      }
+
+      a:hover {
+        color: $text-color;
+      }
+    }
+
+    section.main-intro-text a:after {
+      content: "";
+      font-weight: 500;
+      color: transparent;
+      position: absolute;
+      font-size: 1em;
+      line-height: 1.6em;
+      display: inline;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      -webkit-text-stroke: 2px $text-color;
+    }
+
+    section.main-intro-text a:hover:after {
+      z-index: 300;
+    }
+
+    body.darkmode section.main-intro-text a,
+    body.darkmode section.main-intro-text a:after {
+      font-weight: 600;
+    }
+
+    body.darkmode section.main-intro-text a:after {
+      -webkit-text-stroke: 1px $text-color-darkmode;
+    }
+
+    section.main-intro-text a:nth-child(1):after {
+      content: "Berner Oberland";
+    }
+
+    section.main-intro-text a:nth-child(2):after {
+      content: "wir";
+    }
+
+    section.main-intro-text a:nth-child(3):after {
+      content: "Kund:innen";
+    }
+
+    section.main-intro-text a:nth-child(4):after {
+      content: "digitale Produkte";
+    }
+
+    section.main-intro-text a:nth-child(5):after {
+      content: "und Dienstleistungen";
+    }
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    section.main-intro-text {
+      h1 {
+        font-size: 2.35rem;
+      }
+    }
+  }
+
+  @media (min-width: 1400px) {
+    section.main-intro-text {
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  }
+</style>
+

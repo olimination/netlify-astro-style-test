@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Agile Entwicklung">
+    <meta
+      content="Flink und mit voller Transparenz gestalten wir Entwicklungsprozesse so schlank wie nur möglich - stets mit dem klaren Fokus auf Ihre Anforderungen."
+      name="description">
+    <meta content="scrum,agil,transparent,iterativ,sprints,backlog" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Agile Entwicklung" name="twitter:title">
+    <meta
+      content="Flink und mit voller Transparenz gestalten wir Entwicklungsprozesse so schlank wie nur möglich - stets mit dem klaren Fokus auf Ihre Anforderungen."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Agile Entwicklung" property="og:title">
+    <meta content="Agile Entwicklung" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Flink und mit voller Transparenz gestalten wir Entwicklungsprozesse so schlank wie nur möglich - stets mit dem klaren Fokus auf Ihre Anforderungen."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Agile Software Entwicklung" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Flink und mit voller Transparenz gestalten wir den Entwicklungsprozess so schlank und flexibel wie nur möglich - stets mit dem Fokus auf Ihre Bedürfnisse und Anforderungen." />
+      <Text>
+        <p>Wir versuchen die Entwurfsphase auf ein Minimum zu reduzieren und mit der Entwicklung so schnell wie möglich zu einer ersten nutzbaren Lösung zu gelangen. Diese wird in regelmässigen, kurzen Sprints mit Ihnen gemeinsam abgestimmt. So ist es möglich, flexibel auf Ihre Wünsche einzugehen, um sicherzustellen, dass das Endprodukt Ihren Bedürfnissen bestmöglich entspricht.</p>
+        <p>Die agile Softwareentwicklung zeichnet sich zudem durch selbstorganisierende Teams sowie eine iterative und inkrementelle Vorgehensweise aus. Komplette Transparenz und Kostenkontrolle sind zu jedem Zeitpunkt gewährleistet.</p>
+      </Text>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,65 @@
+---
+import AppConfig from '../components/config.js'
+import BaseLayout from '../layouts/base.astro'
+import Seo from '../components/content/seo.astro'
+import PageTitleSubpage from '../components/content/page-title/page-title-subpage.astro'
+import BlogAttributes from '../components/content/blog/blog-attributes.astro'
+import PosterLarge from '../components/content/poster/poster-large.astro'
+import GlobalContact from '../components/content/global/global-contact.astro'
+import TextCenter from '../components/content/global/global-text-center.astro'
+import SectionTitle from '../components/content/section-title/section-title.astro'
+import BlogCarousel from '../components/content/blog/blog-carousel.astro'
+import DateFormatter from '../components/common/date-formatter.js'
+import LocaleProvider from '../components/common/locale-provider.js'
+import type { Frontmatter } from '../components/content/blog/blog-frontmatter-type.ts'
+import BlogArticleList from '../components/content/blog/blog-article-list.js'
+
+const { content } = Astro.props;
+
+const lang = LocaleProvider().getCurrentLanguageCode();
+const blogDateString = DateFormatter().formatDate(new Date(content.date));
+
+const blogArticles = await Astro.glob<Frontmatter>('../pages/blog/**/*.mdx');
+const lastArticles = BlogArticleList(blogArticles).getLastArticles(9);
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle={ content.title }>
+    <meta content={ content.metaDescription } name="description">
+    <meta content={ content.metaKeywords } name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content={ content.title } name="twitter:title">
+    <meta content={ content.metaDescription } name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta content={ AppConfig.siteBaseUrl + content.posterLarge } name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content={ content.title } property="og:title">
+    <meta content={ lang } property="og:locale">
+    <meta content={ content.metaDescription } property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta content={ AppConfig.siteBaseUrl + content.posterLarge } property="og:image">
+  </Seo>
+  <PageTitleSubpage title={ content.title } breadcrumbTitle="Blog" breadcrumbUrl="/blog"/>
+  <BlogAttributes tags={ content.tags } autor={ content.author } published={ blogDateString } />
+  <PosterLarge class="scroll-reveal" imageSrc={ content.posterLarge } imageAlt={ content.title } />
+  <section class="py-5">
+    <div class="container-xxl">
+      <slot />
+      {
+        content.picCredits && (
+          <TextCenter>
+            <p><i>Pic Credit:
+            {
+              content.picCredits && content.picCredits.map((picCredit, index) => (
+                <span><a href={ picCredit.url } target="_blank">{ picCredit.name }</a>{ index + 1 < content.picCredits.length ? ', ' : ''}</span>
+              ))
+            }
+            </i></p>
+          </TextCenter>
+        )
+      }
+    </div>
+  </section>
+  <GlobalContact label="Lassen Sie sich von uns beraten!" />
+  <SectionTitle title="weiterer Lesestoff" />
+  <BlogCarousel blogArticles={ lastArticles }/>
+</BaseLayout>

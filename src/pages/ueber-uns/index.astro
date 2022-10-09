@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import PosterLarge from '../../components/content/poster/poster-large.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import AboutTeam from '../../components/content/about/about-team.astro';
+import AboutMoodboard from '../../components/content/about/about-moodboard.astro';
+import AboutFacts from '../../components/content/about/about-facts.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Digitales Handwerk">
+    <meta
+      content="Seit 18 Jahren designen und entwickeln wir individuelle Web-Lösungen für grosse, mittlere und kleine Firmen in der ganzen Schweiz."
+      name="description">
+    <meta content="thun,handwerk,digital,erfahrung,designen,entwickeln,software,lösungen,techies,projektmanager,berater,ingenieure,supporter,architekt,spezialist" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Digitales Handwerk" name="twitter:title">
+    <meta
+      content="Seit 18 Jahren designen und entwickeln wir individuelle Web-Lösungen für grosse, mittlere und kleine Firmen in der ganzen Schweiz."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Digitales Handwerk" property="og:title">
+    <meta content="Digitales Handwerk" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Seit 18 Jahren designen und entwickeln wir individuelle Web-Lösungen für grosse, mittlere und kleine Firmen in der ganzen Schweiz."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Digitales Handwerk aus Thun" />
+  <PosterLarge imageSrc="images/aare_thun-berneroberland_zuhause.jpg" imageAlt="Schloss Thun mit Aare im Vordergrund" imageTitle="Thun, unser Zuhause!" />
+  <section class="py-0 pb-5">
+    <div class="container-xxl scroll-reveal">
+      <Lead content="Seit 18 Jahren designen und entwickeln wir individuelle Web-Lösungen für grosse, mittlere und kleine Firmen in der ganzen Schweiz." />
+      <AboutMoodboard />
+      <Lead content="Agile- und Leanmanagement sind für uns nicht einfach nur leere Schlagworte, sondern sind tief in unserer Firmenkultur verankert. " />
+      <AboutFacts countCustomers=">1300" countExpierence="+18" countCoffee="~100"/>
+    </div>
+  </section>
+  <PosterLarge imageSrc="team/comvation-team.jpg" imageAlt="Comvation Team beim Arbeiten" imageTitle="Comvation Team beim Arbeiten" />
+  <section class="py-0">
+    <div class="container-xxl scroll-reveal">
+      <Lead content="Wir sind ein multidisziplinäres Team von Techies, Projektmanagern, Beratern, Software-Ingenieuren, Supportern, IT-Architekten, Backend-Spezialisten und mehr." />
+    </div>
+  </section>
+  <SectionTitle title="Menschen" />
+  <AboutTeam />
+</BaseLayout>

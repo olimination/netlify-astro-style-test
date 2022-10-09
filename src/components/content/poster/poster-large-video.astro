@@ -1,0 +1,63 @@
+---
+const {videoSrc, posterSrc} = Astro.props;
+---
+
+<section class="py-0 poster-large">
+  <picture class="m-0 p-0 mb-4 mb-md-0">
+    <video class="parallax" autoplay loop muted playsinline  poster={ posterSrc }>
+      <source src={ videoSrc } type="video/mp4" />
+    </video>
+  </picture>
+</section>
+
+<style lang="scss">
+  .poster-large {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+  }
+
+  picture {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+  }
+
+  picture video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+	 object-position: 50% 50%;
+z-index: 1;
+	  display: inline-block;
+  }
+
+
+
+  /* Darkmode */
+    body.darkmode h2 {
+  }
+
+  @media (min-width: 576px) {
+  }
+
+  @media (min-width: 768px) {
+    .poster-large {
+      height: 66vh;
+    }
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    .poster-large {
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>
+

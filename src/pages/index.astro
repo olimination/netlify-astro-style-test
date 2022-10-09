@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/base.astro'
+import Seo from '../components/content/seo.astro'
+import AppConfig from '../components/config.js'
+
+import IntroText from '../components/content/intro-text/intro-text.astro';
+import SectionTitle from '../components/content/section-title/section-title.astro';
+import LogoBoard from '../components/content/logo-board/logo-board.astro';
+import ProjectTeaser from '../components/content/project/project-teaser.astro';
+import BlogCarousel from '../components/content/blog/blog-carousel.astro';
+import BlogArticleList from '../components/content/blog/blog-article-list';
+import type { Frontmatter } from '../components/content/blog/blog-frontmatter-type';
+
+const blogArticles = await Astro.glob<Frontmatter>('../pages/blog/**/*.mdx');
+const lastArticles = BlogArticleList(blogArticles).getLastArticles(9);
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Digital- & Webagentur Thun" pageTitleTail="Software Entwicklung & Webdesign">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      name="description">
+    <meta content="digitalagentur,webagentur,websites,online shop,e-commerce,apps,web applikationen,entwicklung,software entwicklung,webdesign,support,software architektur,wartung,ux/ui design,schnittstellen,beratung,digital" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Digital-Agentur Thun" name="twitter:title">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Digital- & Webagentur Thun" property="og:title">
+    <meta content="Digital- & Webagentur Thun" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Mit modernster Technik entwickeln wir Ihre digitale Lösung: Web Applikationen, Websites, Online Shops, SEO, Schnittstellen, Konzepte & Beratung."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <IntroText />
+  <SectionTitle title="Unsere Kund:innen" />
+  <LogoBoard />
+  <SectionTitle title="Aus&shy;erwählte Projekte" />
+  <ProjectTeaser title="Bank Thalwil" lead="Interne App und Dashboard für Immobiliensuchende" videoSrc="/assets/videos/bank_thalwil_slow.mp4" posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" detailLink="/projekte/bank-thalwil" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4" posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>
+  <SectionTitle title="Wissens&shy;wertes" />
+  <BlogCarousel blogArticles={ lastArticles } />
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/base.astro';
+import Seo from '../components/content/seo.astro'
+import AppConfig from '../components/config.js'
+import PageTitle from '../components/content/page-title/page-title.astro';
+import Text from '../components/content/global/global-text.astro';
+import Lead from '../components/content/global/global-lead.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Impressum">
+    <meta
+      content="Alle auf dieser Webseite veröffentlichten Beiträge und Abbildungen sind urheberrechtlich geschützt."
+      name="description">
+    <meta content="impressum,imprint" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Impressum" name="twitter:title">
+    <meta
+      content="Alle auf dieser Webseite veröffentlichten Beiträge und Abbildungen sind urheberrechtlich geschützt."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Impressum" property="og:title">
+    <meta content="Impressum" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Alle auf dieser Webseite veröffentlichten Beiträge und Abbildungen sind urheberrechtlich geschützt."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Impressum" />
+  <section class="py-0">
+    <div class="container-xxl">
+      <Lead content="Alle auf dieser Webseite veröffentlichten Beiträge und Abbildungen sind urheber&shy;rechtlich geschützt. Jede vom Urheber&shy;rechtsgesetz nicht zugelassene Verwertung bedarf vorheriger schriftlicher Zustimmung." />
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 py-5">
+          <h3>Geschäftsleitung</h3>
+          <p>Janik Tschanz<br />Andy Wirth<br />Oliver Burkhalter</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 py-5">
+          <h3>Kontaktinfos</h3>
+          <p>Comvation AG<br />Burgstrasse 6<br />3600 Thun</p>
+          <p>Telefon: <a href="tel:0041332266000">033 226 60 00</a><br />E-Mail: <a href="mailto:info@comvation.com">info@comvation.com</a><br />Helpdesk: <a href="https://support.comvation.com" target="_blank">support.comvation.com</a></p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 py-5">
+          <h3>Firmeninfos</h3>
+          <p>HR: CH-092.4.016.357-1<br />MWST: CHE-110.473.926 MWST</p>
+        </div>
+        <Text>
+          <p>Die Inhalte externer Links werden von uns nicht geprüft. Sie unterliegen der Haftung der jeweiligen Anbieter.</p>
+        </Text>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

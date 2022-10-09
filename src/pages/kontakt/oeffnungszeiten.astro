@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import Text from '../../components/content/global/global-text.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Öffnungszeiten">
+    <meta
+      content="Während den offiziellen Feiertagen sind wir wie folgt für Sie erreichbar."
+      name="description">
+    <meta content="kontakt,thun,anfrage,offerte,formular" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Öffnungszeiten" name="twitter:title">
+    <meta
+      content="Während den offiziellen Feiertagen sind wir wie folgt für Sie erreichbar."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Öffnungszeiten" property="og:title">
+    <meta content="Öffnungszeiten" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Während den offiziellen Feiertagen sind wir wie folgt für Sie erreichbar."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Öffnungszeiten" />
+  <section class="pb-5">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-8 pt-6 pb-5">
+          <p class="lead-text m-0">Montag bis Freitag:<br /> 8:45 - 12:00 Uhr<br />13:30 - 17:00 Uhr</p>
+        </div>
+      </div>
+      <Text>
+        <h2>Erreichbarkeit während Feiertagen</h2>
+        <p>Unseren Supportplan Enterprise-Kunden steht bei Notfällen das Supportteam via Pikett-Telefonnummer zur Verfügung</p><p>Alle übrigen Anfragen werden während unseren Öffnungszeiten bearbeitet:</p>
+        <ul>
+          <li>Neujahrstag, 1. Januar: geschlossen</li>
+          <li>Berchtoldstag, 2. Januar: geschlossen</li>
+          <li>Gründonnerstag: 08:45-12:00 Uhr & 13:30-16:00</li>
+          <li>Karfreitag: geschlossen</li>
+          <li>Ostermontag: geschlossen</li>
+          <li>Mittwoch vor Auffahrt: 08:45-12:00 Uhr & 13:30-16:00</li>
+          <li>Auffahrt: geschlossen</li>
+          <li>Freitag nach Auffahrt: geschlossen</li>
+          <li>Pfingstmontag: geschlossen</li>
+          <li>31. Juli: 08:45-12:00 Uhr & 13:30-16:00*</li>
+          <li>Nationalfeiertag, 1. August: geschlossen</li>
+          <li>Heiligabend, 24. Dezember: 08:45-12:00*</li>
+          <li>Weihnachtstag, 25. Dezember: geschlossen</li>
+          <li>Stephanstag, 26. Dezember: geschlossen</li>
+          <li>Silvester, 31. Dezember: 08:45-12:00 Uhr & 13:30-16:00*</li>
+        </ul>
+* Falls der Tag auf ein Wochenende fällt, haben wir natürlich geschlossen ;-)
+      </Text>
+    </div>
+  </section>
+</BaseLayout>

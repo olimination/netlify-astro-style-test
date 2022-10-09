@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Web- & Mobile Apps">
+    <meta
+      content="Unsere individuelle Software Entwicklung löst Probleme wirklich. Wir entwickeln und betreuen Ihre massgeschneiderte Webapplikation. "
+      name="description">
+    <meta content="Webapplikation,Software Entwicklung,Web Apps,Mobile Apps,Webentwicklung,development,web-app,mobile-app,apps,individuell,massgeschneidert  " name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Web- & Mobile Apps" name="twitter:title">
+    <meta
+      content="Unsere individuelle Software Entwicklung löst Probleme wirklich. Wir entwickeln und betreuen Ihre massgeschneiderte Web- & Mobile-App. "
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/web-mobile-apps.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Web- & Mobile Apps" property="og:title">
+    <meta content="Web- & Mobile Apps" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Unsere individuelle Software Entwicklung löst Probleme wirklich. Wir entwickeln und betreuen Ihre massgeschneiderte Web- & Mobile-App. "
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/web-mobile-apps.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Web- & Mobile Apps" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/web-mobile-apps.jpg" imageAlt="Web- & Mobile Apps" imageTitle="Web- & Mobile Apps" />
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Unsere individuelle Software Entwicklung löst Probleme wirklich. Wir entwickeln und betreuen Ihre massgeschneiderte Webapplikation." />
+      <Text>
+        <p>Bei der individuellen Software Entwicklung bieten wir keine fertigen Lösungen an. Wir sind auf die Entwicklung komplexer Softwarelösungen spezialisiert und erschaffen gemeinsam Ihre individuelle Anwendung in agiler Vorgehensweise.</p>
+        <p>Jedes Projekt basiert auf einem Konzept und wird laufend von echten Nutzern getestet. Das Ergebnis ist ein Produkt, das perfekt auf Ihre Bedürfnisse & deren Anwender zugeschnitten ist und so einen echten Mehrwert bietet.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Haben Sie eine Anwendung geplant?" />
+  <section class="pt-5">
+    <div class="container-xxl">
+      <Text>
+        <p>Unsere Zusammenarbeit wird kein klassisches Kunde & Dienstleister Verhältnis. Wir setzen auf eine partnerschaftliche Zusammenarbeit auf Augenhöhe. Diese basiert auf Vertrauen und Transparenz. Wir beraten Sie von Beginn an und begleiten Sie auch nach dem Go-Live. Projekte setzen wir in agiler Arbeitsweise in engem Austausch mit allen Beteiligten um.</p>
+      </Text>
+    </div>
+  </section>
+  <SectionTitle title="Auserwählte Arbeiten" />
+  <ProjectTeaser title="Bank Thalwil" lead="Interne WebApp und Dashboard für Immobiliensuche" videoSrc="/assets/videos/bank_thalwil_slow.mp4" posterSrc="/assets/use-cases/bank-thalwil/animation_poster.jpg" detailLink="/projekte/bank-thalwil" />
+  <ServiceKeywords title="Alles rund um Web- & Mobile Apps" >
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/konzept-beratung/" target="_blank">Konzept & Beratung </a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/software-architektur/" target="_blank">Software Architektur</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/agile-software-entwicklung/" target="_blank">Agile Software Entwicklung</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/ux-ui-design/" target="_blank">UX- & UI-Design</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/user-testing/" target="_blank">User Testing</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/support-wartung/" target="_blank">Support & Wartung</a></h3></div>
+    </div>
+  </ServiceKeywords>
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

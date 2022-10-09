@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Software Architektur">
+    <meta
+      content="Basierend auf den Anforderungen wird eine grundlegende Architektur aller Komponenten und Lösungen entwickelt. "
+      name="description">
+    <meta content="Software Architektur" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Software Architektur" name="twitter:title">
+    <meta
+      content="Basierend auf den Anforderungen wird eine grundlegende Architektur aller Komponenten und Lösungen entwickelt. "
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Software Architektur" property="og:title">
+    <meta content="Software Architektur" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Basierend auf den Anforderungen wird eine grundlegende Architektur aller Komponenten und Lösungen entwickelt. "
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Software Architektur" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="In der Software-Architektur beschäftigen wir uns mit Anforderungen, Systemen, Komponenten, Beziehungen und Menschen und wie diese Bereiche in guter, qualitativer Art und Weise gestaltet werden können." />
+      <Text>
+        <p>
+          Basierend auf den <strong>Anforderungen</strong> wird eine möglichst <strong>langlebige</strong> und <strong>nachhaltige</strong> Architektur angestrebt.
+        </p>
+        <p>
+          Die Sofware-Architektur beschreibt die <strong>Strukturen und Zerlegung</strong> des Systems, die vorhandenen <strong>Schnittstellen</strong> und
+          die angedachten <strong>Lösungen und Technologien</strong>.
+          Es schafft <strong>Ordnung</strong> und gibt einen <strong>Überblick</strong> über das gesamte Umfeld, wo das neue System entstehen soll.
+        </p>
+        <p>
+          Dabei arbeitet das <strong>Entwicklungsteam</strong> eng mit dem <strong>Kunden</strong> (inkl. wichtigen <strong>Stakeholdern</strong>) zusammen
+          um die <strong>Qualitäten</strong> (z.B. Performance, Security, Usability, Wartbarkeit, Erweiterbarkeit) des Systems explizit <strong>gemeinsam</strong> zu definieren.
+          Es stellt sicher, dass die abgemachten Qualitäten implementiert werden und dass ein System entwickelt wird, das <strong>erweiterbar</strong> und <strong>flexibel</strong> bleibt.
+        </p>
+      </Text>
+    </div>
+  </section>
+</BaseLayout>

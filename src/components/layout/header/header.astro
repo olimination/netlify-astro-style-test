@@ -1,0 +1,94 @@
+<header class="pb-4 pt-0 pt-md-4">
+  <div class="container-fluid py-5 px-xxl-5">
+    <div class="row">
+      <div class="col-6 header-logo scroll-reveal">
+        <a href="/" data-cursor="-pointer">
+          <svg
+            id="header-logo"
+            data-name="Ebene 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 90.79 13.76"
+            ><title>zur Startseite von Comvation AG</title><circle
+              class="cls-1"
+              cx="66.99"
+              cy="1.33"
+              r="1.33"></circle><path
+              class="cls-1"
+              d="M14.49,3.81a5,5,0,1,0,5,5A5,5,0,0,0,14.49,3.81Zm0,7.78a2.72,2.72,0,0,1-2.72-2.8,2.72,2.72,0,1,1,5.44,0A2.72,2.72,0,0,1,14.49,11.59Z"
+            ></path><path
+              class="cls-1"
+              d="M32.34,3.78a3.89,3.89,0,0,0-3.15,1.63,3.22,3.22,0,0,0-3-1.63A3.92,3.92,0,0,0,23.4,5l-.13-1h-2V13.5H23.6V8.2a2.13,2.13,0,0,1,2-2.27c1.11,0,1.81.79,1.81,2.17v5.4h2.31V8.2a2.13,2.13,0,0,1,2-2.27c1.11,0,1.81.79,1.81,2.17v5.4h2.31V7.8C35.87,5.22,34.46,3.78,32.34,3.78Z"
+            ></path><polygon
+              class="cls-1"
+              points="41.72 10.89 39.27 4 36.74 4 40.59 13.5 42.84 13.5 46.7 4 44.16 4 41.72 10.89"
+            ></polygon><path
+              class="cls-1"
+              d="M54.7,5.16a3.76,3.76,0,0,0-2.94-1.35,4.87,4.87,0,0,0-4.77,5,4.86,4.86,0,0,0,4.77,5,3.75,3.75,0,0,0,2.91-1.34l.17,1.11h2V4h-2ZM52,11.54a2.65,2.65,0,0,1-2.68-2.76,2.7,2.7,0,1,1,5.4,0A2.68,2.68,0,0,1,52,11.54Z"
+            ></path><polygon
+              class="cls-1"
+              points="62.5 1.19 60.17 1.74 60.17 4 58.82 4 58.82 6.13 60.18 6.13 60.18 13.5 62.5 13.5 62.5 6.13 64.59 6.13 64.59 4 62.5 4 62.5 1.19"
+            ></polygon><rect
+              class="cls-1"
+              x="65.84"
+              y="4.01"
+              width="2.31"
+              height="9.5"></rect><path
+              class="cls-1"
+              d="M75,3.81a5,5,0,1,0,5,5A5,5,0,0,0,75,3.81Zm0,7.78a2.71,2.71,0,0,1-2.72-2.8,2.72,2.72,0,1,1,5.43,0A2.71,2.71,0,0,1,75,11.59Z"
+            ></path><path
+              class="cls-1"
+              d="M87,3.81a4.26,4.26,0,0,0-3.15,1.44L83.73,4h-2V13.5h2.3V8.24a2.3,2.3,0,0,1,2.34-2.3c1.29,0,2.07.84,2.07,2.36v5.2h2.32V7.89C90.79,5.31,89.31,3.81,87,3.81Z"
+            ></path><path
+              class="cls-1"
+              d="M5.09,5.92a3.63,3.63,0,0,1,2.49,1l.86-1.73A5,5,0,0,0,5,3.81a5,5,0,1,0,0,10,5.05,5.05,0,0,0,3.42-1.3l-.84-1.8a3.64,3.64,0,0,1-2.48,1A2.82,2.82,0,0,1,2.29,8.79,2.8,2.8,0,0,1,5.09,5.92Z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @import "../../../styles/variables";
+
+  header {
+    width: 100%;
+    line-height: 1.5rem;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    min-width: 320px;
+    pointer-events: none;
+    mix-blend-mode: exclusion;
+  }
+
+  header.hidden {
+    top: 0px;
+  }
+
+  header div.header-logo {
+    transition: filter $basic-transition;
+    opacity: 1;
+    pointer-events: all;
+
+    svg#header-logo {
+      height: 1.5rem;
+      width: auto;
+    }
+    svg#header-logo * {
+      fill: #fff;
+    }
+  }
+
+  header.hide-logo .header-logo {
+    opacity: 1;
+  }
+
+  /* Darkmode */
+  body.darkmode header {
+    div.header-logo svg#header-logo .cls-1 {
+      fill: #ffffff !important;
+    }
+  }
+</style>

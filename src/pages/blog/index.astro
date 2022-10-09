@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import BlogOverview from '../../components/content/blog/blog-overview.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Blog" >
+    <meta
+      content="Aktuelles und Wissenswertes zu: Web Entwicklung, Websites, Online Shops, SEO, Schnittstellen, Konzept & Beratung."
+      name="description">
+    <meta content="blog,wissen,knowhow,know-how,aktuelles,news,berichte,digital-agentur,webagentur,websites,online shop,e-commerce,apps,web applikationen,entwicklung,software entwicklung,webdesign,support,software architektur,wartung,ux design,ui design,schnittstellen,beratung" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Blog" name="twitter:title">
+    <meta
+      content="Aktuelles und Wissenswertes zu: Web Entwicklung, Websites, Online Shops, SEO, Schnittstellen, Konzept & Beratung."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Blog" property="og:title">
+    <meta content="Blog" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Aktuelles und Wissenswertes zu: Web Entwicklung, Websites, Online Shops, SEO, Schnittstellen, Konzept & Beratung."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Unser Blog" />
+  <BlogOverview />
+</BaseLayout>

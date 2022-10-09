@@ -1,0 +1,222 @@
+---
+layout: '../../../layouts/blog.astro'
+title: 'Sylius: Produktgruppe Modell erweitern inkl. API'
+description: 'In diesem Blog schauen wir uns an, wie man der Produktgruppe oder Produktkategorie ein zusätzliches Feld hinzufügt.'
+posterLarge: 'blog/sylius-dev-blog-header-image-1.png'
+author: 'Oliver Burkhalter'
+date: '2022-10-10'
+mainTag: 'development'
+tags: ['development','technology']
+metaDescription: 'In diesem Blog schauen wir uns an, wie man der Produktgruppe oder Produktkategorie ein zusätzliches Feld hinzufügt.'
+metaKeywords: 'sylius,development,symfony,php,produktgruppe,api,extension'
+picCredits: [
+    {name: 'Sylius', url: 'https://sylius.com/'}
+]
+---
+
+Die eCommerce-Software-Lösung “[Sylius](https://sylius.com/)” lässt sich - dank ihrem guten Grundaufbau - auf einfache Art und Weise erweitern.
+
+In diesem Blog schauen wir uns an, wie man der **Produktgruppe** oder **Produktkategorie** ein zusätzliches Feld hinzufügt.
+
+Folgende Anleitung wurde mit **Sylius 1.10.x** getestet.
+
+## Der Use-Case und die Ausgangslage
+
+Auf einer Shop-Website möchte man die Produktgruppe näher beschreiben. In Sylius gibt es zwar standardmässig bereits dieses “Beschreibung” Feld, aber man möchte die Produktgruppe noch mit einem zusätzlichen Teaser-Text “peppiger” gestalten. D.h. es soll zuerst der Teaser-Text erscheinen mit einem hervorgehobenen Style und anschliessend die nähere Beschreibung mit einem einfacheren Style. Zudem soll dieser Teaser-Text im Sylius Admin-UI, nebst der Beschreibung, vom Admin verwaltet werden können.
+
+Die Shop-Website ist zudem so aufgebaut, dass ein separates Frontend die Ansichten für den Endbenutzer generiert mit Hilfe der Shop-Daten von Sylius. Dabei wird das neue **Sylius APIv2** eingesetzt.
+
+Um diese Teaser-Text Daten anzeigen zu können im Frontend, muss ebenfalls die jeweilige Sylius **API Model Serialization** Konfiguration erweitert werden.
+
+## Übersicht der nötigen Schritte
+
+Um diesen Use-Case umsetzen zu können, sind folgende Schritte nötig:
+
+    1. Das entsprechende Modell für die Übersetzung (TaxonTranslation) erweitern inkl. Datenbank Migration
+
+    2. Das Produktgruppe Modell (Taxon) erweitern
+
+    3. Das entsprechende Formular im Admin-UI erweitern (Form Type Extension)
+
+    4. Die nötigen Übersetzungstexte hinzufügen
+
+    5. Die entsprechende API Modell Serialization Konfiguration hinzufügen
+
+Lass uns diese Schritte näher anschauen.
+
+## Das entsprechende Modell für die Übersetzung (TaxonTranslation) erweitern inkl. Datenbank Migration
+
+Dieser Abschnitt basiert auf der offiziellen Dokumentation zu finden hier: [Link](https://docs.sylius.com/en/1.12/customization/model.html#how-to-customize-a-translatable-model)
+
+Da dieses Teaser-Text Feld übersetzbar sein soll, muss zuerst das Translation-Modell der Produktgruppe, also **Taxon**, erweitert werden.
+
+Bei einer Sylius Standard Installation wurde dieses Modell bereits hier angelegt: `src/Entity/Taxonomy/TaxonTranslation.php`
+
+Dieses Modell wird um das neue Teaser-Text Feld erweitert, wir verwenden hier den gleichen ORM Column Type `text` wie für das Feld “Beschreibung” (zu finden in der DB zum Beispiel):
+
+```php
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_taxon_translation")
+ */
+class TaxonTranslation extends BaseTaxonTranslation
+{
+    /** @ORM\Column(type="text", nullable=true) */
+    private string $teaserText;
+
+    public function getTeaserText(): ?string
+    {
+        return $this->teaserText;
+    }
+
+    public function setTeaserText(?string $teaserText): void
+    {
+        $this->teaserText = $teaserText;
+    }
+}
+```
+
+Das Datenbank-Schema muss anschliessend aktualisiert werden mit diesem neuen Feld.
+
+Es ist empfohlen dies via **Doctrine Migrations** zu tun, damit man diese Skripte ggf. in einer auto. Deployment-Pipeline einsetzen kann
+um DB Migrations automatisiert auszurollen.
+
+Folgenden Befehl generiert ein solches DB Migrationsskript:
+
+```shell
+$> php bin/console doctrine:migrations:diff
+```
+
+Dieses SQL-Skript findet man anschliessend standardmässig im Verzeichnis `src/Migrations`.
+
+Mit dem folgenden Befehl kann dann die Migration effektiv ausgeführt werden:
+
+```shell
+$> php bin/console doctrine:migrations:migrate
+```
+
+## Das Produktgruppe Modell (Taxon) erweitern
+
+Dieser Abschnitt basiert auf der offiziellen Dokumentation, hier zu finden: [Link](https://docs.sylius.com/en/1.12/customization/model.html#how-to-customize-translatable-fields-of-a-translatable-model).
+
+Als nächstes erweitert man das Taxon-Modell, damit man auch auf dieses “TeaserText” Feld zugreifen kann.
+
+Die Funktion `createTranslation` ist wichtig, da dieses im Hintergrund von Sylius benutzt wird um ein Objekt für das Übersetzungsmodell zu instanzieren.
+Das wird über das `TranslatableTrait` definiert.
+
+```php
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_taxon")
+ */
+class Taxon extends BaseTaxon
+{
+    ... some code before...
+
+    public function getTeaserText(): ?string
+    {
+        /** @var TaxonTranslation $translation  */
+        $translation = $this->getTranslation();
+        return $translation->getTeaserText();
+    }
+
+    public function setTeaserText(?string $teaserText): void
+    {
+        /** @var TaxonTranslation $translation  */
+        $translation = $this->getTranslation();
+        $translation->setTeaserText($teaserText);
+    }
+
+    protected function createTranslation(): TaxonTranslationInterface
+    {
+        return new TaxonTranslation();
+    }
+    ...
+}
+```
+
+## Das entsprechende Formular im Admin-UI erweitern (Form Type Extension)
+
+Damit das neue “TeaserText” Feld auch vom Admin-Benutzer mit Daten befüllt werden kann,
+braucht es noch eine Erweiterung des Taxon-Formulars im Admin-Bereich.
+
+Hierfür wird eine sogenannte **Form Type Extension** erstellt. Siehe die offizielle Dokumentation hier: [Link](https://docs.sylius.com/en/1.12/customization/form.html).
+
+In unserem Fall für die Erweiterung des Taxon-Modells erweitern wir den bereits vorhandenen Sylius Form Type `TaxonTranslationType`.
+
+Wir nennen unsere Form Type Extension `CustomTaxonTranslationTypeExtension` und fügen das “teaserText” Feld hinzu:
+
+```php
+namespace App\Form\Extension;
+
+use Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonTranslationType;
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\FormBuilderInterface;
+
+final class CustomTaxonTranslationTypeExtension extends AbstractTypeExtension
+{
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
+        $builder
+            ->add('teaserText', TextareaType::class, [
+                'required' => false,
+                'label' => 'sylius.form.taxon.teaser.text',
+            ]);
+    }
+
+    public static function getExtendedTypes(): iterable
+    {
+        return [TaxonTranslationType::class];
+    }
+}
+```
+
+## Die nötigen Übersetzungstexte hinzufügen
+
+Für die Admin-UI brauchen wir noch entsprechende Übersetzungstexte.
+Wie oben in der Form Type Extension zu sehen, brauchen wir als Label den Wert `sylius.form.taxon.teaser.text`.
+
+Diesen Wert fügen wir noch in unseren translation-Files unter `translations/messages.*` hinzu.
+
+## Die entsprechende API Modell Serialization Konfiguration hinzufügen
+
+So, mit den obigen Schritten sind wir bereits fertig und der Admin-Benutzer kann bereits das neue Feld “Teaser-Text” abfüllen und einsetzen.
+
+Da aber unsere Shop-Website ein eigenes Frontend besitzt und wir Sylius im “**Headless**” Mode verwenden, möchten wir noch die API entsprechend so erweitern, dass dieses “TeaserText” Feld auch als API-Response rausgegeben wird.
+
+Sylius setzt “[API Platform](https://api-platform.com/)” als API Framework ein. Das ermöglicht uns eine einfache und saubere Erweiterung der API in Sylius.
+
+Hierfür schreiben wir eine neue **API Serialization Konfiguration** für das entsprechende Modell.
+
+Diesen Schritt findet man auch in den offiziellen Dokumentation hier: [Link](https://docs.sylius.com/en/1.12/customization/api/serialization_customization.html).
+
+Für unseren Fall fügen wir folgende Datei hinzu: `config/serialization/TaxonTranslation.xml` mit folgendem Inhalt:
+
+```xml
+<?xml version="1.0" ?>
+<serializer xmlns="http://symfony.com/schema/dic/serializer-mapping"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://symfony.com/schema/dic/serializer-mapping https://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd"
+>
+    <class name="Sylius\Component\Taxonomy\Model\TaxonTranslation">
+        <attribute name="teaserText">
+            <group>admin:taxon:read</group>
+            <group>shop:taxon:read</group>
+            <group>admin:taxon_translation:read</group>
+            <group>shop:taxon_translation:read</group>
+        </attribute>
+    </class>
+</serializer>
+```
+
+Hier aktivieren lediglich das neue “teaserText” Feld für die entsprechenden **Serialization Groups**, die Sylius intern definiert hat.
+
+## Done ✅
+
+Mit den obigen Schritten haben wir **Sylius’s Taxon-Modell** um ein zusätzliches Feld (TeaserText) erweitern und
+dieses in der Admin-UI bearbeitbar machen können.
+
+Zudem haben wir die **API Serialization** Konfiguration erweitert, damit man auch über die **Sylius APIv2** das neue Feld abrufen kann.

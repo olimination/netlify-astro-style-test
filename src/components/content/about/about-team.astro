@@ -1,0 +1,102 @@
+---
+import AboutTeamEmployee from '../../../components/content/about/about-team-employee.astro';
+const filterElements = ["Lernende", "Entwicklung", "Design", "Verkauf", "Marketing", "Admin", "Leitung"];
+---
+
+
+<script>
+import jQuery from 'jquery';
+import Isotope from 'isotope-layout';
+import AboutTeam from './about-team.js';
+import ImagesLoaded from 'imagesloaded';
+
+jQuery(() => {
+  AboutTeam(Isotope, ImagesLoaded, jQuery, '.team-filter', '.team-overview').init();
+});
+</script>
+
+<section class="team-filter">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12 pt-5">
+        {filterElements.map((element) => (
+          <a href="#" class="button isotope-filter" data-filter={ element }>{ element }</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</setion>
+
+<section class="team-overview pt-6">
+  <div class="container-xxl">
+    <div class="row isotope-grid">
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Lernende Entwicklung" data-sort="Dominic">
+        <AboutTeamEmployee firstname="Dominic" lastname="Zybach" workAs="Lernender Informatiker EFZ" label="Dauer-hungrig" imageSrc="/assets/team/dominic-zybach.jpg" imageAlt="Dominic Zybach" imageTitle="Dominic Zybach"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Lernende Entwicklung" data-sort="Yanick">
+        <AboutTeamEmployee firstname="Yanick" lastname="Aerni" workAs="Lernender Informatiker EFZ" label="Ausschlaf-Profi" imageSrc="/assets/team/yanick-aerni.jpg" imageAlt="Yanick Aerni" imageTitle="Yanick Aerni"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Marketing Leitung" data-sort="Carlo">
+        <AboutTeamEmployee firstname="Carlo" lastname="Badini" workAs="VRP" label="Pixelschieber" imageSrc="/assets/team/carlo-badini.jpg" imageAlt="Carlo Badini" imageTitle="Carlo Badini"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung" data-sort="Sören">
+        <AboutTeamEmployee firstname="Sören" lastname="Rossmann"  workAs="Entwickler" label="Möchte-gern-Japaner" imageSrc="/assets/team/soeren-rossmann.jpg" imageAlt="Sören Rossmann" imageTitle="Sören Rossmann"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung" data-sort="Alex">
+        <AboutTeamEmployee firstname="Alex" lastname="Stroh" workAs="Entwickler" label="Mac-Romantiker" imageSrc="/assets/team/alex-stroh.jpg" imageAlt="Alex Stroh" imageTitle="Alex Stroh"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung" data-sort="Ramon">
+        <AboutTeamEmployee firstname="Ramon" lastname="Schneider" workAs="Entwickler" label="Aquarianer" imageSrc="/assets/team/ramon-schneider.jpg" imageAlt="Ramon Schneider" imageTitle="Ramon Schneider"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung" data-sort="Reto">
+        <AboutTeamEmployee firstname="Reto" lastname="Kohli"  workAs="Entwickler" label="Bier-Idealist" imageSrc="/assets/team/reto-kohli.jpg" imageAlt="Reto Kohli" imageTitle="Reto Kohli"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Admin" data-sort="Nahlin">
+        <AboutTeamEmployee firstname="Nahlin" lastname="Weber" workAs="Administration" label="Pisten-Blitz" imageSrc="/assets/team/nahlin-weber.jpg" imageAlt="Nahlin Weber" imageTitle="Nahlin Weber"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung Verkauf Leitung" data-sort="Oliver">
+        <AboutTeamEmployee firstname="Oliver" lastname="Burkhalter" workAs="Leiter Entwicklung" label="Permakultur-Amateur" imageSrc="/assets/team/oliver-burkhalter.jpg" imageAlt="Oliver Burkhalter" imageTitle="Oliver Burkhalter"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Entwicklung Verkauf Leitung" data-sort="Janik">
+        <AboutTeamEmployee firstname="Janik" lastname="Tschanz" workAs="CEO" label="Morgenmensch mit Paradoxon" imageSrc="/assets/team/janik-tschanz.jpg" imageAlt="Janik Tschanz" imageTitle="Janik Tschanz"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Design Marketing" data-sort="Rahel">
+        <AboutTeamEmployee firstname="Rahel" lastname="Heer" workAs="Konzeption & Design" label="To-do-Listen-Schreiberin" imageSrc="/assets/team/noch-kein-bild.jpg" imageAlt="Rahel Heer" imageTitle="Rahel Heer"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Design" data-sort="Samuel">
+        <AboutTeamEmployee firstname="Samuel" lastname="Bader" workAs="UX/UI-Designer" label="Last-Minute-King" imageSrc="/assets/team/noch-kein-bild.jpg" imageAlt="Samuel Bader" imageTitle="Samuel Bader"/>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 pb-6 isotope-element Marketing" data-sort="Doris">
+        <AboutTeamEmployee firstname="Doris" lastname="Baric" workAs="Outbound Marketer" label="Tabellen-Rockstar" imageSrc="/assets/team/noch-kein-bild.jpg" imageAlt="Doris Baric" imageTitle="Doris Baric"/>
+      </div>
+
+      <div class="col-1 isotope-grid-sizer"><!-- --></div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .isotope-grid-sizer {
+    z-index: -1;
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+
+  }
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1200px) {
+
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>
+

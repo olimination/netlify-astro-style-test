@@ -1,0 +1,48 @@
+---
+const filterElements = ["Website", "Online Shop", "App", "Schnittstelle", "UX/UI-Design", "Konzept", "Wartung"];
+---
+
+
+<script>
+import jQuery from 'jquery';
+import Isotope from 'isotope-layout';
+import ProjectList from './project-list.js';
+
+jQuery(() => {
+  ProjectList(Isotope, jQuery, '.project-list-filter', '.project-list').init();
+});
+</script>
+
+<section class="project-list-filter">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12  scroll-reveal">
+        {filterElements.map((element) => (
+          <a href="#" class="button isotope-filter" data-filter={ element }>{ element }</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</setion>
+
+<section class="py-6">
+  <div class="container-xxl">
+    <div class="row scroll-reveal">
+      <div class="col-12">
+        <div class="project-list">
+          <div class="project-list-head">
+            <div>Kunde</div>
+            <div>Services</div>
+            <div class="text-end">Jahr</div>
+          </div>
+        </div>
+        <div id="json-data-wrapper" class="project-list isotope-grid">
+          <div class="isotope-grid-sizer"><!-- --></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+</style>

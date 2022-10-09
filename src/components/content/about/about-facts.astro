@@ -1,0 +1,48 @@
+---
+const {countCustomers, countExpierence, countCoffee} = Astro.props;
+---
+
+<div class="row">
+  <div class="col-12 col-md-4 pb-5">
+    <span class="fact">{ countCustomers }</span>
+    <label>Zufriedene Kunden</label>
+  </div>
+  <div class="col-12 col-md-4 pb-5">
+    <span class="fact">{ countExpierence }</span>
+    <label>Jahre Erfahrung</label>
+  </div>
+  <div class="col-12 col-md-4 pb-5">
+    <span class="fact">{ countCoffee }</span>
+    <label>Kilo Kaffee pro Jahr</label>
+  </div>
+</div>
+
+<style lang="scss">
+  .fact {
+    font-size: 3.6rem;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+
+  }
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1200px) {
+
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>
+

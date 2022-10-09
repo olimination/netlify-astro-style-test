@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="UX- & UI-Design">
+    <meta
+      content="Mit unseren durchdachten UX- und UI-Designs schaffen wir ein intuitives Nutzererlebnis und vereinen Ihr digitales Produkt zu einem ästhetischen Ganzen."
+      name="description">
+    <meta content="User Centered Design,Screendesign,Webdesign,Interface,visuelle Gestaltung,Layout,Mockup,Prototype,ux,user experience,ui,user interface,design,interaction" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="UX- & UI-Design" name="twitter:title">
+    <meta
+      content="Mit unseren durchdachten UX- und UI-Designs schaffen wir ein intuitives Nutzererlebnis und vereinen Ihr digitales Produkt zu einem ästhetischen Ganzen."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/ux-ui-design.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="UX- & UI-Design" property="og:title">
+    <meta content="UX- & UI-Design" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Mit unseren durchdachten UX- und UI-Designs schaffen wir ein intuitives Nutzererlebnis und vereinen Ihr digitales Produkt zu einem ästhetischen Ganzen."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/ux-ui-design.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="UX- & UI-Design" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/ux-ui-design.jpg" imageAlt="UX- und UI-Design" imageTitle="UX- und UI-Design" />
+
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Mit unseren durchdachten UX- und UI-Designs schaffen wir ein intuitives Nutzererlebnis und vereinen Ihr digitales Produkt zu einem ästhetischen Ganzen." />
+      <Text>
+        <p>Ein Webdesign ist wie ein Witz: Muss man es erklären, dann ist es einfach nicht gut! Unsere Weblösungen sind State of the Art und auf Ihre Besucher:innen optimiert. Wir sprechen hier von User Centered Design - Ihre Besucher:innen stehen im Zentrum.</p>
+        <p>Das User Experience Design (UX-Design) stellt die Benutzerfreundlichkeit - oder auch Bedienbarkeit (Usability) in den Fokus, so dass Ihre Besucher:innen sich gut zurecht finden. Abgerundet wird die User Experience mit einem stimmigen UI-Design (User Interface Design), welches Ihr digitales Produkt zu einem ästhetischen Meisterwerk erstrahlen lässt, auf welchem Ihre Besucher:innen intuitiv interagieren können.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Haben Sie ein Projekt geplant?" />
+  <section class="pt-5">
+    <div class="container-xxl">
+      <Text>
+        <p>Unsere Zusammenarbeit wird kein klassisches Kunde & Dienstleister Verhältnis. Wir setzen auf eine partnerschaftliche Zusammenarbeit auf Augenhöhe. Diese basiert auf Vertrauen und Transparenz. Wir beraten Sie von Beginn an und begleiten Sie auch nach dem Go-Live. Projekte setzen wir in agiler Arbeitsweise in engem Austausch mit allen Beteiligten um.</p>
+      </Text>
+    </div>
+  </section>
+  <SectionTitle title="Auserwählte Arbeiten" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4" posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>
+  <ServiceKeywords title="Alles rund um UX- und UI-Design" >
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/konzept-beratung/" target="_blank">Konzept & Beratung </a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/content/" target="_blank">Content</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/website-online-shop" target="_blank">Websites & Online Shop </a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/web-mobile-apps" target="_blank">Web- & Mobile Apps</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/user-testing/" target="_blank">User Testing</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/support-wartung/" target="_blank">Support & Wartung</a></h3></div>
+    </div>
+  </ServiceKeywords>
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

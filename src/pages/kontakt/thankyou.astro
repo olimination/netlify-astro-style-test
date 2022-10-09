@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import PageTitle from '../../components/content/page-title/page-title.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Merci - Wir freuen uns!">
+    <meta
+      content="Vielen Dank für Ihre Nachricht. Wir melden uns so schnell wie möglich bei Ihnen."
+      name="description">
+    <meta content="webdesign, homepage, homepage erstelen, web app, mobile app, software, entwickler, beratung, software architektur, agil, scrum, webseite, webseite erstellen, webentwicklung, onlinemarketing, suchmaschinenoptimierung, seo, sea, responsive, website, website erstellen, e-business, webapplikationen, web dienstleistungen, provider, technologiepartner" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Merci - Wir freuen uns!" name="twitter:title">
+    <meta
+      content="Vielen Dank für Ihre Nachricht. Wir melden uns so schnell wie möglich bei Ihnen."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Merci - Wir freuen uns!" property="og:title">
+    <meta content="Merci - Wir freuen uns!" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Vielen Dank für Ihre Nachricht. Wir melden uns so schnell wie möglich bei Ihnen."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="Merci - Wir freuen uns!" />
+  <section class="py-0">
+    <div class="container-xxl">
+      <Lead content="Vielen Dank für Ihre Nachricht. Wir melden uns so schnell wie möglich bei Ihnen." />
+    </div>
+  </section>
+</BaseLayout>

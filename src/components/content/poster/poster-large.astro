@@ -1,0 +1,43 @@
+---
+import ImageDefault from '../../content/global/global-image-twicpics-default.astro';
+
+const { imageSrc, imageAlt } = Astro.props;
+---
+
+<section class="py-0 poster-large">
+  <ImageDefault imageSrc={ imageSrc } alt={ imageAlt } cssClass="parallax" />
+</section>
+
+<style lang="scss">
+  .poster-large {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+  }
+
+  /* Darkmode */
+  body.darkmode h2 {
+  }
+
+  @media (min-width: 576px) {
+  }
+
+  @media (min-width: 768px) {
+    .poster-large {
+      height: 66vh;
+    }
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    .poster-large {
+      height: 100vh;
+    }
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>
+

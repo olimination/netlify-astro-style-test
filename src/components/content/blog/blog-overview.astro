@@ -1,0 +1,82 @@
+---
+import BlogTeaserBox from '../../../components/content/blog/blog-teaser-box.astro';
+import BlogArticleList from './blog-article-list';
+import type { Frontmatter } from './blog-frontmatter-type';
+import BlogTagsProvider from './blog-tags-provider';
+
+const blogTagsProvider = BlogTagsProvider();
+const blogTags = blogTagsProvider.getAllTags();
+
+const blogArticles = await Astro.glob<Frontmatter>('../../../pages/blog/**/*.mdx');
+const sortedArticles = BlogArticleList(blogArticles).getAllArticlesOrderByDateDesc();
+
+---
+
+<script>
+import jQuery from 'jquery';
+import Isotope from 'isotope-layout';
+import BlogOverview from './blog-overview.js';
+import ImagesLoaded from 'imagesloaded';
+
+jQuery(() => {
+  BlogOverview(Isotope, ImagesLoaded, jQuery, '.blog-filter', '.blog-overview').init();
+});
+
+</script>
+
+<section class="blog-filter">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12  scroll-reveal">
+        {
+          blogTags.map((tag) => (
+            <a href="#" class="button isotope-filter" data-filter={ tag.id }>{ tag.name }</a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pt-6 blog-overview">
+  <div class="container-xxl">
+    <div class="row isotope-grid">
+      {
+        sortedArticles.map((blogArticle) => (
+          <div class={ 'col-12 col-sm-6 col-lg-4 mb-6 isotope-element ' + blogArticle.frontmatter.mainTag }>
+            <BlogTeaserBox title={ blogArticle.frontmatter.title }
+              label={ blogTagsProvider.getTagNameById(blogArticle.frontmatter.mainTag) }
+              imageSrc={ blogArticle.frontmatter.posterLarge }
+              detailLink={ blogArticle.url } />
+          </div>
+        ))
+      }
+      <div class="col-1 isotope-grid-sizer"><!-- --></div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .isotope-grid-sizer {
+    z-index: -1;
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+
+  }
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1200px) {
+
+  }
+
+  @media (min-width: 1400px) {
+  }
+</style>
+

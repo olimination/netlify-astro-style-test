@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/base.astro';
+import Seo from '../components/content/seo.astro'
+import AppConfig from '../components/config.js'
+import PageTitle from '../components/content/page-title/page-title.astro';
+import Text from '../components/content/global/global-text.astro';
+import Lead from '../components/content/global/global-lead.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Allgemeine Geschäftsbedingungen">
+    <meta
+      content="Auch das Rechtliche muss sein! Bei Fragen oder Unklarheiten stehen wir Ihnen gerne mit Rat und Tat zur Seite."
+      name="description">
+    <meta content="agb,allgemeine geschäftsbedingungen" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Allgemeine Geschäftsbedingungen" name="twitter:title">
+    <meta
+      content="Auch das Rechtliche muss sein! Bei Fragen oder Unklarheiten stehen wir Ihnen gerne mit Rat und Tat zur Seite."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_square.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Allgemeine Geschäftsbedingungen" property="og:title">
+    <meta content="Allgemeine Geschäftsbedingungen" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Auch das Rechtliche muss sein! Bei Fragen oder Unklarheiten stehen wir Ihnen gerne mit Rat und Tat zur Seite."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/logo/comvation_logo_social_media_landscape.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitle title="AGB - Auch das Rechtliche muss sein!" />
+  <section class="py-0">
+    <div class="container-xxl">
+      <Lead content="Bei Fragen oder Unklarheiten stehen wir Ihnen gerne mit Rat und Tat zur Seite. Wir helfen Ihnen dabei, die rechtlichen Floskeln zu verstehen, so dass Sie genau wissen, auf was Sie sich mit uns einlassen." />
+      <Text>
+          <h2><a href="/assets/pdf/2021-08-31_AGB_Webhosting-Comvation-AG_v1.1.pdf" target="_blank">AGB Comvation AG (v1.15)</a></h2>
+          <p>gültig ab 31.08.2021</p>
+          <h2><a href="/assets/pdf/2021-08-31_AGB_Webhosting-Comvation-AG_v1.1.pdf" target="_blank">AGB Webhosting Comvation AG (v1.1)</a></h2>
+          <p>gültig ab 31.08.2021</p>
+        </div>
+      </Text>
+    </div>
+  </section>
+</BaseLayout>

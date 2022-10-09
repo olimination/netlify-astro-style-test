@@ -1,0 +1,89 @@
+---
+import BlogTeaserBox from '../../../components/content/blog/blog-teaser-box.astro';
+import '../../../../node_modules/swiper/swiper.scss';
+import BlogTagsProvider from './blog-tags-provider';
+
+const { blogArticles } = Astro.props;
+const blogTagsProvider = BlogTagsProvider();
+
+---
+
+<script>
+import jQuery from 'jquery';
+import Swiper from 'swiper/bundle';
+
+import BlogCarousel from './blog-carousel.js';
+
+jQuery(() => {
+  BlogCarousel(Swiper, jQuery, '.blog-carousel').init();
+});
+
+</script>
+
+<section class="py-6 blog-carousel">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="swiper">
+        <div class="swiper-wrapper scroll-reveal">
+        {
+          blogArticles.map((blogArticle) => (
+            <div class="swiper-slide">
+              <BlogTeaserBox title={ blogArticle.frontmatter.title }
+                label={ blogTagsProvider.getTagNameById(blogArticle.frontmatter.mainTag) }
+                imageSrc={ blogArticle.frontmatter.posterLarge }
+                detailLink={ blogArticle.url } />
+            </div>
+          ))
+        }
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style lang="scss">
+  .blog-carousel {
+    .swiper {
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      min-height: 300px;
+      height: auto;
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+    }
+  }
+
+
+  /* Darkmode */
+  body.darkmode {
+  }
+
+  @media (min-width: 576px) {
+
+  }
+
+  @media (min-width: 768px) {
+
+  }
+
+  @media (min-width: 992px) {
+
+  }
+
+  @media (min-width: 1200px) {
+
+  }
+
+  @media (min-width: 1400px) {
+    .blog-carousel {
+      .swiper {
+        margin-left: calc((100vw - 1320px - var(--bs-gutter-x) * 0.5) / 2);
+        width: calc(100% - ((100vw - 1320px - var(--bs-gutter-x) * 0.5) / 2));
+      }
+    }
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Hosting">
+    <meta
+      content="Auf unseren performanten und sicheren Servern erhalten Sie genügend Platz für all Ihre digitalen Lösungen sowie E-Mails."
+      name="description">
+    <meta content="Hosting,Server,Paas,Deploment,Plattform,Paas" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Hosting" name="twitter:title">
+    <meta
+      content="Auf unseren performanten und sicheren Servern erhalten Sie genügend Platz für all Ihre digitalen Lösungen sowie E-Mails."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Hosting" property="og:title">
+    <meta content="Hosting" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Auf unseren performanten und sicheren Servern erhalten Sie genügend Platz für all Ihre digitalen Lösungen sowie E-Mails."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/websites-e-commerce.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Hosting & Server" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Auf unseren performanten und sicheren  Servern erhalten Sie genügend Platz für all Ihre Lösungen und Ihre E-Mails. " />
+      <Text>
+        <p>Konzentrieren Sie sich auf Ihr Tagesgeschäft und überlassen Sie das Verwalten und Betreiben des Servers unserem Expertenteam. Wir haben für jede Lösung die passende Plattform </p>
+        <p><a href="/assets/services/Preisliste-Hostings.pdf" target="_blank">Preisliste Hosting</a></p>
+      </Text>
+    </div>
+</BaseLayout>

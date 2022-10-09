@@ -1,0 +1,67 @@
+---
+// Comvation Base Layout
+import '../styles/global.scss';
+
+import AppConfig from '../components/config.js';
+import Header from '../components/layout/header/header.astro';
+import MenuButton from '../components/layout/header/menu-button.astro';
+import Footer from '../components/layout/footer/footer.astro';
+import MainNav from '../components/layout/main-navigation/main-navigation.astro';
+---
+
+<!DOCTYPE html>
+<html dir="ltr" lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="index,follow" name="robots">
+    <link href={ new URL(Astro.url.pathname, Astro.site) } rel="canonical">
+    <slot name="seo">
+      <title>Digitale Produkte und Dienstleistungen fürs Internet | Comvation AG | Thun, Berner Oberland</title>
+    </slot>
+    <meta content="/favicon/browserconfig.xml" name="msapplication-config">
+    <link href="/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+   <!--  <link href="/favicon/site.webmanifest" rel="manifest"> -->
+    <link color="#F2A633 "href="/favicon/safari-pinned-tab.svg" rel="mask-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <script async defer src={ AppConfig.imageRenderingServiceBaseUrl + '/?v1' }></script>
+    <script>
+      import jQuery from 'jquery';
+      import Base from './base.js';
+      import Parallax from './parallax.js';
+      import MyMouseFollower from './mouse-follower.js';
+      import MouseFollower from "mouse-follower";
+      import gsap from "gsap";
+      import ImagesLoaded from 'imagesloaded';
+      import SimpleParallax from 'simple-parallax-js';
+
+      jQuery(() => {
+        Base(jQuery, ImagesLoaded, 'body').init();
+        Parallax(SimpleParallax, ImagesLoaded, jQuery, '.parallax').init();
+        MyMouseFollower(MouseFollower, jQuery, gsap).init();
+      });
+
+    </script>
+
+    {
+      import.meta.env.PROD && (
+        <script is:inline src="//cdn.cookie-script.com/s/b94b395a05901be1de659d2ca911dd3f.js"></script>
+        <script is:inline data-cookiescript="accepted" data-cookiecategory="targeting">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=!0;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KNNTSRZ')</script>
+      )
+    }
+
+  </head>
+  <body>
+    <Header />
+    <MenuButton />
+    <MainNav />
+    <main class="position-relative">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

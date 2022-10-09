@@ -1,0 +1,36 @@
+---
+const {customer, services, published} = Astro.props;
+---
+
+
+
+<section class="project-attributes scroll-reveal simple-reveal">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-6 col-md-3 pb-5">
+        <label>Kunde</label><h3>{ customer }</h3>
+      </div>
+      <div class="col-6 col-md-6 pb-5">
+        <label>Services</label><h3>{ services }</h3>
+      </div>
+      <div class="col-6 col-md-3 pb-5">
+        <label>Jahr</label><h3>{ published }</h3>
+      </div>
+    </div>
+  </div>
+</setion>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  h3 {
+    font-size: 1.2rem;
+    color: $text-color;
+    line-height: 1.5em;
+    margin-bottom: 0;
+  }
+
+  body.darkmode h3 {
+    color: $text-color-darkmode !important;
+  }
+</style>

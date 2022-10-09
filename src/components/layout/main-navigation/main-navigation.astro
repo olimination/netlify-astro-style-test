@@ -1,0 +1,224 @@
+<script>
+import jQuery from 'jquery';
+import MainNavigation from './main-navigation.js';
+
+jQuery(() => {
+  MainNavigation(jQuery, '.main-navigation').init();
+});
+
+</script>
+
+<section class="main-navigation px-4">
+  <header class="container-xxl py-4">
+    <div class="row">
+      <div class="col py-5">
+        <div class="main-navigation-darkmode-switch" data-cursor-pointer data-cursor-stick="#switch-stick-point">
+          <div class="circle"></div>
+          <div id="switch-stick-point"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="container-xxl py-4">
+    <div class="row">
+      <div class="col px-5">
+        <ul class="p-0 m-0">
+          <li><a href="/projekte" data-cursor-pointer>Projekte <span id="sticky-point-1" class="sticky-point"></span> </a></li>
+          <li><a href="/services"  data-cursor="-pointer">Services <span id="sticky-point-2" class="sticky-point"></span> </a></li>
+          <li><a href="/ueber-uns" data-cursor="-pointer">Über uns <span id="sticky-point-3" class="sticky-point"></span> </a></li>
+          <li><a href="/blog"  data-cursor="-pointer">Blog <span id="sticky-point-4" class="sticky-point"></span> </a></li>
+          <li><a href="/kontakt"  data-cursor="-pointer">Kontakt <span id="sticky-point-5" class="sticky-point"></span> </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  .main-navigation {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    max-width:645px;
+    background-color: #ffffff;
+    top: 0;
+    right: -656px;
+    transition: right $navi-transition, box-shadow $navi-transition;
+    z-index: 200;
+    box-shadow: 0px 0px 0px rgba(28, 31, 35, 0);
+    overflow-x: hidden;
+    overflow-x: auto;
+  }
+
+  body.main-navi-open .main-navigation {
+    right: 0;
+    box-shadow: 0px 0px 60px rgba(28, 31, 35, 0.15);
+  }
+
+  body.main-navi-open nav a {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  body.main-navi-open nav li {
+    &:nth-child(1) {
+      a {
+        transition: all $basic-transition, transform .6s cubic-bezier(.7, 0, .3, 1) .1s, opacity .6s cubic-bezier(.7, 0, .3, 1) .1s;
+      }
+    }
+    &:nth-child(2) {
+      a {
+        transition: all $basic-transition, transform .6s cubic-bezier(.7, 0, .3, 1) .2s, opacity .6s cubic-bezier(.7, 0, .3, 1) .2s;
+      }
+    }
+    &:nth-child(3) {
+      a {
+        transition: all $basic-transition, transform .6s cubic-bezier(.7, 0, .3, 1) .3s, opacity .6s cubic-bezier(.7, 0, .3, 1) .3s;
+      }
+    }
+    &:nth-child(4) {
+      a {
+        transition: all $basic-transition, transform .6s cubic-bezier(.7, 0, .3, 1) .4s, opacity .6s cubic-bezier(.7, 0, .3, 1) .4s;
+      }
+    }
+    &:nth-child(5) {
+      a {
+        transition: all $basic-transition, transform .6s cubic-bezier(.7, 0, .3, 1) .5s, opacity .6s cubic-bezier(.7, 0, .3, 1) .5s;
+      }
+    }
+  }
+
+  body.main-navi-open:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.01);
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 98;
+  }
+
+  header {
+    line-height: 1.5rem;
+  }
+
+  .main-navigation-darkmode-switch {
+    width: 4rem;
+    height: 2rem;
+    border: 5px solid #fff;
+    mix-blend-mode: exclusion;
+    border-radius: 1000px;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    &.dark {
+      .circle {
+        left: calc(2rem - 5px);
+      }
+      #switch-stick-point {
+        left: 25%;
+      }
+     }
+    .circle {
+      position: absolute;
+      transition: $basic-transition;
+      left: -5px;
+      top: -5px;
+      width: 2rem;
+      height: 2rem;
+      background: #fff;
+      border-radius: 50%;
+    }
+    #switch-stick-point {
+      @include center;
+      left: 75%;
+    }
+  }
+
+  nav {
+    opacity: 0;
+    transition: opacity $basic-transition;
+  }
+
+  body.main-navi-open nav {
+    opacity: 1;
+  }
+
+
+  nav li,
+  footer li {
+    list-style: none;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.5em;
+    display: block;
+    color: $text-color;
+    text-decoration: none;
+    transition: all .3s ease-in-out, letter-spacing .6s cubic-bezier(.7, 0, .3, 1), transform .6s cubic-bezier(.7, 0, .3, 1), opacity .6s cubic-bezier(.7, 0, .3, 1);
+    position: relative;
+    left: 0;
+    display: inline-block;
+    opacity: 0;
+    transform: translate(-1rem);
+    .sticky-point {
+      @include center;
+    }
+  }
+
+  nav a.active-link,
+  nav a:hover,
+  footer a.active-link,
+  footer a:hover{
+    color: $text-color;
+    text-decoration: none;
+    letter-spacing: 3px;
+    left: .5rem;
+  }
+
+  footer a {
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1em;
+    display: block;
+    color:   $text-color;
+    text-decoration: none;
+    border-bottom: 3px solid rgba(0,0,0,0);
+  }
+
+  footer a.active-link {
+    border-color: $text-color-hover;
+  }
+
+  /* Darkmode */
+  body.darkmode .main-navigation {
+    background-color:  #1C1F23 !important;
+  }
+
+  body.main-navi-open.darkmode .main-navigation {
+    box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  body.main-navi-open.darkmode .main-navigation-darkmode-switch svg {
+    transform: rotate(180deg);
+  }
+
+  body.darkmode nav a,
+  body.darkmode footer a {
+    color:  $text-color-darkmode !important;
+  }
+
+  body.darkmode footer a.active-link,
+  body.darkmode footer a:hover {
+    color:   $text-color-hover-darkmode  !important;
+  }
+
+  body.darkmode footer a.active-link {
+    border-color:   $text-color-hover-darkmode !important;
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import BlogTagsFormatter from "./blog-tags-formatter";
+
+const { tags, autor, published } = Astro.props;
+
+const formattedTags = BlogTagsFormatter(tags).getFormattedTags();
+---
+
+
+
+<section class="blog-attributes">
+  <div class="container-xxl scroll-reveal">
+    <div class="row">
+      <div class="col-6 col-md-3 pb-5">
+        <label>Themen</label><h3>{ formattedTags }</h3>
+      </div>
+      <div class="col-6 col-md-3 pb-5">
+        <label>Author</label><h3>{ autor }</h3>
+      </div>
+      <div class="col-6 col-md-3 pb-5">
+        <label>Publiziert</label><h3>{ published }</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  h3 {
+    font-size: 1.2rem;
+    color: $text-color;
+    line-height: 1.5em;
+    margin-bottom: 0;
+  }
+
+  body.darkmode h3 {
+    color: $text-color-darkmode !important;
+  }
+</style>

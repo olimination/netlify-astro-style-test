@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="Support & Wartung">
+    <meta
+      content="Unser Support-Team ist auch nach dem Go-Live für Sie da und garantiert Ihnen stets professionelle Unterstützung - 365 Tage im Jahr."
+      name="description">
+    <meta content="Unterstützung,Betrieb,Update,Weiterentwicklung,wartung,Lifecycle,SLA,support,helpdesk,betreuung,pikett" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="Support & Wartung" name="twitter:title">
+    <meta
+      content="Unser Support-Team ist auch nach dem Go-Live für Sie da und garantiert Ihnen stets professionelle Unterstützung - 365 Tage im Jahr."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/support-wartung.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="Support & Wartung" property="og:title">
+    <meta content="Support & Wartungr" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Unser Support-Team ist auch nach dem Go-Live für Sie da und garantiert Ihnen stets professionelle Unterstützung - 365 Tage im Jahr."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/support-wartung.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="Support & Wartung" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/support-wartung.jpg" imageAlt="Support & Wartung" imageTitle="Support & Wartung" />
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Unser Support-Team ist auch nach dem Go-Live für Sie da und garantiert Ihnen stets professionelle Unterstützung - 365 Tage im Jahr." />
+      <Text>
+        <p>Unsere Helpdesk-Truppe garantiert Ihnen stets professionelle Unterstützung. Wir beantworten Unklarheiten, analysieren Fehler und finden für jedes Problem die passende Lösung. Das ganze gibt's als Flatrate zum Fixpreis - individuell auf Ihre Bedürfnisse und Wünsche zugeschnitten.</p>
+      </Text>
+      <Text>
+        <h2>Supportplan FLEX</h2>
+        <p>Basierend auf Ihrer Webseite erhalten Sie ein massgeschneidertes und frei konfigurierbares Angebot: Von der kompletten Bewirtschaftung bis hin zum Enterprise-Support mit VIP-Nummer, auch ausserhalb der Öffnungszeiten, ist alles möglich.</p>
+        <p>Support Hotline: <a href="tel:0041332266000">033 226 60 00</a><br />Support Helpdesk: <a href="mailto:support@comvation.com">support@comvation.com</a></p>
+      </Text>
+      <Text>
+        <h2>Wartung</h2>
+        <p>Genau wie Bedürfnisse wandeln sich auch die Anforderungen an eine bestehende Anwendung. Eine sinnvolle Weiterentwicklung stellt sicher, dass Ihre Lösung Sie und Ihre Kunden:innen auch morgen noch glücklich macht und Mehrwerte generiert.</p>
+        <p>Da sich die Technik unaufhaltsam weiterentwickelt, werden wir auch der laufenden Wartung Ihrer Anwendung gerecht. So vermeiden wir Sicherheitslücken, funktionale Probleme und lassen Sie an neuen Funktionen nach Updates Freude haben.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Möchten Sie bestehende Lösungen verbinden?" />
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

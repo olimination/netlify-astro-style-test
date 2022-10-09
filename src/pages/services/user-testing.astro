@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/base.astro';
+import Seo from '../../components/content/seo.astro'
+import AppConfig from '../../components/config.js'
+import PageTitleSubpage from '../../components/content/page-title/page-title-subpage.astro';
+import PosterMedium from '../../components/content/poster/poster-medium.astro';
+import Text from '../../components/content/global/global-text.astro';
+import ServiceTechnologies from '../../components/content/service/service-technologies.astro';
+import SectionTitle from '../../components/content/section-title/section-title.astro';
+import ServiceKeywords from '../../components/content/service/service-keywords.astro';
+import Lead from '../../components/content/global/global-lead.astro';
+import GlobalContact from '../../components/content/global/global-contact.astro'
+import ProjectTeaser from '../../components/content/project/project-teaser.astro';
+---
+<BaseLayout>
+  <Seo slot="seo" pageTitle="User Testing">
+    <meta
+      content="Damit die Bedürfnisse der künftigen Nutzer mit dem Endprodukt übereinstimmen, werden  Hypothesen aus der Konzeption auf den Prüfstand gestellt."
+      name="description">
+    <meta content="Nutzerverhalten,Zielgruppe,AB Testing,Prototyp,User Journey,Prozesse,user,testing,tests,konzeption,hypthesen,prüfstand" name="keywords">
+    <meta content="summary" name="twitter:card">
+    <meta content="User Testing" name="twitter:title">
+    <meta
+      content="Damit die Bedürfnisse der künftigen Nutzer mit dem Endprodukt übereinstimmen, werden  Hypothesen aus der Konzeption auf den Prüfstand gestellt."
+      name="twitter:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } name="twitter:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/user-testing.jpg' }
+      name="twitter:image">
+    <meta content="website" property="og:type">
+    <meta content="User Testing" property="og:title">
+    <meta content="User Testing" property="og:site_name">
+    <meta content="de" property="og:locale">
+    <meta
+      content="Damit die Bedürfnisse der künftigen Nutzer mit dem Endprodukt übereinstimmen, werden  Hypothesen aus der Konzeption auf den Prüfstand gestellt."
+      property="og:description">
+    <meta content={ new URL(Astro.url.pathname, Astro.site) } property="og:url">
+    <meta
+      content={ AppConfig.siteBaseUrl + '/assets/services/user-testing.jpg' }
+      property="og:image">
+  </Seo>
+  <PageTitleSubpage title="User Testing" breadcrumbTitle="Services" breadcrumbUrl="/services"/>
+  <PosterMedium imageSrc="/assets/services/user-testing.jpg" imageAlt="User Testing" imageTitle="User Testing" />
+
+  <section class="pb-5">
+    <div class="container-xxl">
+      <Lead content="Damit die Bedürfnisse der künftigen Nutzer mit dem Endprodukt übereinstimmen, werden Hypothesen aus der Konzeption auf den Prüfstand gestellt." />
+      <Text>
+        <p>Wir sind Experten auf unserem Gebiet - aber sind es Ihre Besucher:innen auch? Wir wollen Ihren Erfolg nicht dem Zufall überlassen und Hypothesen aus der Konzeption mit echten Nutzer:innen testen.</p>
+        <p>In zielgerichteten User Testings wird Ihr Produkt von echten Nutzern:innen getestet, wobei wir gewinnbringende Feedbacks erhalten, die bares Geld wert sind. Der Umfang des Testings steht immer in Abhängigkeit zur Komplexität und dem Projektbudget.</p>
+      </Text>
+    </div>
+  </section>
+  <GlobalContact label="Möchten Sie Lösungen testen?" />
+  <section class="pt-5">
+    <div class="container-xxl">
+      <Text>
+        <p>Unsere Zusammenarbeit wird kein klassisches Kunde & Dienstleister Verhältnis. Wir setzen auf eine partnerschaftliche Zusammenarbeit auf Augenhöhe. Diese basiert auf Vertrauen und Transparenz. Wir beraten Sie von Beginn an und begleiten Sie auch nach dem Go-Live. Projekte setzen wir in agiler Arbeitsweise in engem Austausch mit allen Beteiligten um.</p>
+      </Text>
+    </div>
+  </section>
+  <SectionTitle title="Auserwählte Arbeiten" />
+  <ProjectTeaser title="Mountain Flyers" lead="Website und Online Shop für Helikopter-Charter" videoSrc="/assets/videos/mountainflyers_slow.mp4" posterSrc="/assets/use-cases/mountain-flyers/animation_poster.jpg"  detailLink="/projekte/mountain-flyers"/>
+  <ProjectTeaser title="R4 Raumwelten" lead="Responsive Website für Interior Design Studio" videoSrc="/assets/videos/r-4_slow.mp4" posterSrc="/assets/use-cases/r4-raumwelten/animation_poster.jpg"  detailLink="/projekte/r4-raumwelten"/>
+  <ServiceKeywords title="Alles rund um User Testing" >
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/konzept-beratung/" target="_blank">Konzept & Beratung</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/content/" target="_blank">Content</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/software-architektur/" target="_blank">Software Architektur</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/agile-software-entwicklung/" target="_blank">Agile Software Entwicklung</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/ux-ui-design/" target="_blank">UX- & UI-Design</a></h3></div>
+      <div class="col-12 col-sm-6 col-md-4 py-3"><h3><a href="/services/support-wartung/" target="_blank">Support & Wartung</a></h3></div>
+    </div>
+  </ServiceKeywords>
+  <SectionTitle title="mit modernster Technik" />
+  <ServiceTechnologies />
+</BaseLayout>

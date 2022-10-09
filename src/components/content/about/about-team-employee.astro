@@ -1,0 +1,45 @@
+---
+const {firstname, lastname, workAs, label, imageSrc, imageAlt, imageTitle, since} = Astro.props;
+---
+
+<div class="about-team-employee scroll-reveal">
+    <picture class="m-0 p-0 mb-4">
+      <img src={ imageSrc } alt={ imageAlt } title={ imageTitle }  />
+    </picture>
+    <label>{ workAs } <br /> { label }</label>
+    <h3>{ firstname } { lastname }</h3>
+</div>
+
+
+<style lang="scss">
+  @import '../../../styles/variables';
+
+  picture {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+
+  picture:before {
+    content: "";
+    width: 100%;
+    padding-bottom: 150%;
+    display: block;
+	  z-index: 1;
+  }
+
+
+  picture img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+	  object-position: 50% 50%;
+	  z-index: 1;
+	  display: block;
+  }
+</style>
